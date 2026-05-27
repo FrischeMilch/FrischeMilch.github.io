@@ -7,7 +7,439 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-  :root {
+  :root {<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NANA'S BATTLEPASS // 30TH SEASON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+<!-- ══════════════════ SIDEBAR ══════════════════ -->
+<aside class="sidebar">
+
+  <div class="sb-logo">
+    <!-- Valorant V-Logo mit SVG Filter-Glow -->
+    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="vglow" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <path d="M6 8 L22 36 L38 8 L31 8 L22 26 L13 8Z"
+            fill="#ff3848" filter="url(#vglow)"/>
+    </svg>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-i on">
+      <span class="ni">
+        <!-- Crosshair icon -->
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+          <path d="M7 0v2.5M7 11.5V14M0 7h2.5M11.5 7H14M7 4.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/>
+        </svg>
+      </span>
+      Battlepass
+    </div>
+    <div class="nav-i">
+      <span class="ni">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+          <rect x="1" y="2" width="12" height="1.5" rx=".5"/>
+          <rect x="1" y="6" width="9" height="1.5" rx=".5"/>
+          <rect x="1" y="10" width="11" height="1.5" rx=".5"/>
+        </svg>
+      </span>
+      Missionen
+    </div>
+    <div class="nav-i">
+      <span class="ni">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+          <path d="M7 1L8.8 5.2l4.5.4-3.3 2.9 1 4.4L7 10.6l-4 2.3 1-4.4L.8 5.6l4.5-.4z"/>
+        </svg>
+      </span>
+      Rewards
+    </div>
+    <div class="nav-i">
+      <span class="ni">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+          <rect x="1" y="1" width="12" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M4 13h6M7 10v3"/>
+        </svg>
+      </span>
+      Agent File
+    </div>
+    <div class="nav-i">
+      <span class="ni">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+          <path d="M1 11l3-6 3 4 2-3 4 5H1z"/>
+        </svg>
+      </span>
+      Stats
+    </div>
+    <div class="nav-i">
+      <span class="ni">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+          <circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M7 6v4M7 4v.5"/>
+        </svg>
+      </span>
+      About Us
+    </div>
+  </nav>
+
+  <!-- Sidebar bottom: episode label + controls -->
+  <div class="sb-bot">
+    <div class="sb-ep">EPISODE 30<br>ACT I</div>
+    <div class="sb-row">
+      <!-- Discord icon -->
+      <span class="sb-btn" title="Discord">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M13.4 3a11.6 11.6 0 00-2.9-.9l-.1.2c1 .3 2 .7 2.9 1.3a9.8 9.8 0 00-7.6 0C6.6 3 7.6 2.6 8.6 2.3l-.1-.2c-1 .2-2 .5-2.9.9A12 12 0 002 12.3a8.7 8.7 0 004.4 1.6l.7-1a6 6 0 01-1.8-.9l.4-.3a7 7 0 006.6 0l.4.3c-.6.4-1.2.7-1.8.9l.7 1A8.7 8.7 0 0014 12.3 12 12 0 0013.4 3zM6 10.5c-.7 0-1.3-.6-1.3-1.4S5.3 7.7 6 7.7s1.3.7 1.3 1.4S6.7 10.5 6 10.5zm4 0c-.7 0-1.3-.6-1.3-1.4s.6-1.4 1.3-1.4 1.3.7 1.3 1.4-.6 1.4-1.3 1.4z"/>
+        </svg>
+      </span>
+      <!-- Settings icon -->
+      <span class="sb-btn" title="Settings">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 5a3 3 0 100 6A3 3 0 008 5zm0 1.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/>
+          <path d="M8 0l1 2.3a6 6 0 011.7 1L13 2.6l1.4 1.4-1 2.3a6 6 0 010 2L15 10.6 13.4 12l-2.3-1a6 6 0 01-1.7 1L8 14.5l-1.5-1.5.3-2.5A6 6 0 015 9.5L2.6 10.6 1 9l1-2.3a6 6 0 010-2L.6 2.6 2.2 1l2.3 1A6 6 0 016 1L8 0z" opacity=".4"/>
+        </svg>
+      </span>
+      <span class="sb-snd">SOUND: ON</span>
+    </div>
+
+    <!-- Red waveform decoration (like in screenshot) -->
+    <svg width="140" height="18" viewBox="0 0 140 18" style="margin-top:8px;opacity:.35">
+      <defs>
+        <filter id="wglow"><feGaussianBlur stdDeviation="1" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <g fill="#ff3848" filter="url(#wglow)">
+        <rect x="0"   y="8" width="3" height="2"/>
+        <rect x="5"   y="6" width="3" height="6"/>
+        <rect x="10"  y="4" width="3" height="10"/>
+        <rect x="15"  y="7" width="3" height="4"/>
+        <rect x="20"  y="5" width="3" height="8"/>
+        <rect x="25"  y="9" width="3" height="1"/>
+        <rect x="30"  y="6" width="3" height="6"/>
+        <rect x="35"  y="3" width="3" height="12"/>
+        <rect x="40"  y="7" width="3" height="4"/>
+        <rect x="45"  y="5" width="3" height="8"/>
+        <rect x="50"  y="8" width="3" height="2"/>
+        <rect x="55"  y="4" width="3" height="10"/>
+        <rect x="60"  y="6" width="3" height="6"/>
+        <rect x="65"  y="9" width="3" height="1"/>
+        <rect x="70"  y="5" width="3" height="8"/>
+        <rect x="75"  y="3" width="3" height="12"/>
+        <rect x="80"  y="7" width="3" height="4"/>
+        <rect x="85"  y="6" width="3" height="6"/>
+        <rect x="90"  y="8" width="3" height="2"/>
+        <rect x="95"  y="5" width="3" height="8"/>
+        <rect x="100" y="4" width="3" height="10"/>
+        <rect x="105" y="7" width="3" height="4"/>
+        <rect x="110" y="6" width="3" height="6"/>
+        <rect x="115" y="9" width="3" height="1"/>
+        <rect x="120" y="5" width="3" height="8"/>
+        <rect x="125" y="3" width="3" height="12"/>
+        <rect x="130" y="7" width="3" height="4"/>
+        <rect x="135" y="8" width="3" height="2"/>
+      </g>
+    </svg>
+  </div>
+
+</aside><!-- /sidebar -->
+
+<!-- ══════════════════ MAIN ══════════════════ -->
+<div class="main">
+
+  <!-- TOPBAR -->
+  <div class="top">
+    <div class="top-ep" id="hep-t"><b>EPISODE 30</b> // ACT I</div>
+    <div class="top-r">
+      <div class="pchip">
+        <div class="pav" id="pav-t">👸</div>
+        <div>
+          <div class="pnm" id="pnm-t">Birthday Queen <span class="pcr">👑</span></div>
+          <div class="plv" id="plv-t">Level 0</div>
+        </div>
+        <!-- Dropdown chevron -->
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="#6a6a82" style="margin-left:6px">
+          <path d="M2 4l4 4 4-4" stroke="#6a6a82" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="menu-b"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="cnt">
+
+    <!-- LEFT COLUMN -->
+    <div class="lcol">
+
+      <!-- ════ HERO BANNER ════ -->
+      <div class="hero">
+        <!-- Layered background with red radial glows -->
+        <div class="hbg"></div>
+
+        <!-- Diagonal red slashes (copied from screenshot geometry) -->
+        <div class="hslash"></div>
+        <div class="hslash"></div>
+        <div class="hslash"></div>
+        <div class="hslash"></div>
+
+        <!-- Large Valorant V watermark behind character -->
+        <svg class="h-vmark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 20 L100 175 L180 20 L152 20 L100 135 L48 20Z" fill="#ff3848"/>
+        </svg>
+
+        <!-- Character silhouette + glow layers -->
+        <div class="hchar">
+          <div class="hchar-hair"></div>
+          <div class="hchar-body"></div>
+          <div class="hchar-glow"></div>
+        </div>
+
+        <!-- Floating annotation -->
+        <div class="h-anno" id="hanno-t">
+          <span class="big">30 und</span><br>immer noch<br>our duo &lt;3
+        </div>
+
+        <!-- Crown / icon above annotation (like screenshot) -->
+        <div style="position:absolute;z-index:7;right:218px;top:8px;font-size:28px;
+                    filter:drop-shadow(0 0 10px rgba(255,56,72,.6));opacity:.9;">👑</div>
+
+        <!-- Hero text block -->
+        <div class="htxt">
+          <div class="h-ep" id="hep-t2"><b>EPISODE 30</b> // ACT I</div>
+
+          <div class="h-title">
+            BATTLEPASS<span class="h-title-k">N</span>
+          </div>
+
+          <!-- Italic script subtitle with decorative lines -->
+          <div class="h-sub" id="hsub-t">🎂 Happy Birthday!</div>
+
+          <div class="h-desc" id="hdesc-t">FÜR DIE BESTE GAMERIN &amp; DUO PARTNERIN &lt;3</div>
+
+          <div class="h-btns">
+            <button class="br" onclick="scrollBP()">BATTLEPASS ANSEHEN ›</button>
+            <button class="bg"><span class="play-c">▶</span> TRAILER ABSPIELEN</button>
+          </div>
+        </div>
+
+      </div><!-- /hero -->
+
+      <!-- ════ BATTLEPASS LEVELS ════ -->
+      <div class="bp-s">
+        <div class="bp-lbl">BATTLEPASS LEVELS</div>
+        <div class="bp-r" id="bp-row">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+
+      <!-- ════ TIMELINE ════ -->
+      <div class="tl-w">
+        <div class="tl-r" id="tl-row">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+
+      <!-- ════ BOTTOM PANEL ════ -->
+      <div class="bot">
+
+        <!-- Daily Missions -->
+        <div class="bb daily">
+          <div class="bb-t">
+            DAILY MISSIONS
+            <div class="bb-timer">
+              <!-- Clock icon -->
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="#6a6a82">
+                <circle cx="5" cy="5" r="4" fill="none" stroke="#6a6a82" stroke-width="1"/>
+                <path d="M5 3v2.5l1.5 1" stroke="#6a6a82" stroke-width=".8" stroke-linecap="round" fill="none"/>
+              </svg>
+              <span id="tmr">07:42:18</span> BIS RESET
+            </div>
+          </div>
+          <div id="dm-list"><!-- Rendered by app.js --></div>
+        </div>
+
+        <!-- Bottom Quote -->
+        <div class="bb quote">
+          <!-- Valorant mini-V logo (like in screenshot) -->
+          <div class="bq-ic">
+            <svg width="34" height="34" viewBox="0 0 44 44" fill="none">
+              <defs>
+                <filter id="bqglow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="2" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <path d="M6 8 L22 36 L38 8 L31 8 L22 26 L13 8Z"
+                    fill="#ff3848" filter="url(#bqglow)" opacity=".9"/>
+            </svg>
+          </div>
+          <div>
+            <div class="bq-t" id="bqt-t">Es ist nicht nur ein Spiel.<br>Es ist unsere Lobby.</div>
+            <div class="bq-f" id="bqf-t">– seit gefühlt immer</div>
+          </div>
+        </div>
+
+        <!-- Passive Ability -->
+        <div class="bb abil">
+          <div class="ab-h passive">PASSIVE ABILITY</div>
+          <div class="ab-c">
+            <div class="ab-i">❤️</div>
+            <div>
+              <div class="ab-t" id="abpt">Du machst jede Lobby einfach so.</div>
+              <div class="ab-tag" id="abptag">[PASSIVE]</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ultimate Ability -->
+        <div class="bb abil">
+          <div class="ab-h ult">ULTIMATE ABILITY</div>
+          <div class="ab-c">
+            <div class="ab-i">✨</div>
+            <div>
+              <div class="ab-t" id="abut">Bring Chaos, Good Vibes und Wins.</div>
+              <div class="ab-tag" id="abutag">[ULT READY]</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Season End -->
+        <div class="bb season">
+          <div class="s-l">SAISON ENDET AM</div>
+          <div class="s-d" id="sd-t">NIEMALS</div>
+          <div class="s-s" id="ss-t">30. GEBURTSTAG</div>
+          <div class="s-cake">🎂</div>
+        </div>
+
+      </div><!-- /bot -->
+
+    </div><!-- /lcol -->
+
+    <!-- ══════════════════ RIGHT COLUMN ══════════════════ -->
+    <div class="rcol">
+
+      <!-- Level display -->
+      <div class="rl">
+        <div class="rl-l">AKTUELLER LEVEL</div>
+        <div class="rl-n">
+          <span id="rln">0</span>
+          <span class="rl-sep">/</span>
+          <span class="rl-tot">30</span>
+        </div>
+        <div class="rl-sub"><span id="rlm">0</span> / 30 MISSIONEN ABGESCHLOSSEN</div>
+
+        <!-- XP bar -->
+        <div class="xp-o">
+          <div class="xp-f" id="xpb" style="width:0%"></div>
+        </div>
+        <div class="xp-p" id="xpp">0%</div>
+      </div>
+
+      <!-- Quote block -->
+      <div class="rq">
+        <div class="rq-qm">❝</div>
+        <div class="rq-t" id="rqt-t">Hardstuck?<br>Nein.<br>Lifestyle.</div>
+        <div class="rq-f" id="rqf-t">– dein Onkel &amp; Duo</div>
+        <!-- Gold rank badge (like in screenshot) -->
+        <div class="rq-m">
+          <svg width="32" height="32" viewBox="0 0 32 32">
+            <defs>
+              <filter id="gg"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- Crown/rank icon -->
+            <path d="M4 22 L8 10 L16 18 L24 10 L28 22Z" fill="#ffd44f" filter="url(#gg)"/>
+            <path d="M4 22h24v3H4z" fill="#d4a520"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="rt">
+        <div class="rtb on" onclick="setTab('all',this)">ALLE</div>
+        <div class="rtb" onclick="setTab('open',this)">AKTIV</div>
+        <div class="rtb" onclick="setTab('done',this)">BELOHNUNG</div>
+        <div class="rtb" onclick="setTab('premium',this)">PREMIUM</div>
+        <div class="rt-ar">
+          <span class="rt-a">‹</span>
+          <span class="rt-a">›</span>
+        </div>
+      </div>
+
+      <!-- Mission list -->
+      <div class="ml" id="m-list">
+        <!-- Rendered by app.js -->
+      </div>
+
+    </div><!-- /rcol -->
+
+  </div><!-- /cnt -->
+</div><!-- /main -->
+</div><!-- /app -->
+
+<!-- ════════════════ MISSION MODAL ════════════════ -->
+<div class="ov" id="m-ov">
+  <div class="mdl">
+    <button class="mx" onclick="clAll()">✕</button>
+    <div class="mb">
+      <span class="m-em" id="mm-ic">🎯</span>
+      <div class="m-tag">MISSION ABSCHLIESSEN</div>
+      <div class="m-nm" id="mm-nm">–</div>
+      <div class="m-ds" id="mm-ds">–</div>
+      <div class="m-acts">
+        <button class="br" onclick="confirmM()">✓ ABSCHLIESSEN</button>
+        <button class="bg" onclick="clAll()" style="justify-content:center">ABBRECHEN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ REWARD MODAL ════════════════ -->
+<div class="ov" id="r-ov">
+  <div class="mdl">
+    <button class="mx" onclick="clAll()">✕</button>
+    <div class="mb">
+      <div class="rw-badge" id="rw-bd">LEVEL 1 FREIGESCHALTET</div>
+      <div id="rw-env">
+        <div class="rw-box" onclick="reveal()">🎁</div>
+        <div class="rw-hint">⬡ TIPPE ZUM ÖFFNEN ⬡</div>
+      </div>
+      <div class="rw-rev" id="rw-rev">
+        <div class="rw-nm" id="rw-nm">???</div>
+        <div class="rw-rd" id="rw-ds">???</div>
+      </div>
+      <button class="bg" style="margin-top:16px;width:100%;justify-content:center" onclick="clAll()">WEITER</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ LEVEL UP BANNER ════════════════ -->
+<div class="lu" id="lu">
+  <div class="lu-l">⬡ LEVEL UP ⬡</div>
+  <div class="lu-n" id="lu-n">1</div>
+</div>
+
+<!-- ════════════════ CONFETTI ════════════════ -->
+<div class="cfl" id="cfl"></div>
+
+<!-- Scripts: config first, then app -->
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
     --red: #ff2a2a;
     --red-dark: #b81c1c;
     --red-glow: rgba(255, 42, 42, 0.4);
