@@ -1043,6 +1043,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function fillDaily() {
   const dl = $('dm-list');
+  if (!dl) return;
   dl.innerHTML = '';
   CONFIG.dailyMissions.forEach(d => {
     const r = document.createElement('div');
