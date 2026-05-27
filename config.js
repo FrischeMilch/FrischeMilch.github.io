@@ -1,46 +1,36 @@
 // ╔════════════════════════════════════════════════════════════════╗
-// ║  🎮 NANA'S BATTLEPASS — KONFIGURATION                       ║
+// ║  🌸 NANA'S BATTLEPASS — KONFIGURATION                       ║
 // ║                                                              ║
 // ║  ⚡ NUR DIESE DATEI BEARBEITEN!                              ║
-// ║  Die anderen Dateien (index.html, style.css, app.js)         ║
-// ║  müssen NICHT angefasst werden.                              ║
-// ║                                                              ║
-// ║  Einfach die Texte unten anpassen, speichern, fertig.        ║
+// ║  Die anderen Dateien müssen NICHT angefasst werden.          ║
 // ╚════════════════════════════════════════════════════════════════╝
 
 const CONFIG = {
 
-  // ─── 👤 PERSÖNLICHE INFOS ─────────────────────
-  name: "Nana",                          // Name des Geburtstagskinds
-  age: 30,                               // Alter (= Anzahl Battlepass-Level)
-  profileTitle: "Birthday Queen",        // Profilname oben rechts
-  profileEmoji: "👸",                    // Profilbild-Emoji
+  name: "Nana",
+  age: 30,
+  profileTitle: "Birthday Queen",
+  profileEmoji: "👸",
 
-  // ─── 🎬 HERO-BEREICH (großer Banner oben) ────
-  heroSubtitle: "Happy Birthday!",       // Kursiver Untertitel
+  heroSubtitle: "Happy Birthday!",
   heroDesc: "FÜR DIE BESTE GAMERIN & DUO PARTNERIN <3",
 
-  // Schwebender Text neben der Charakter-Silhouette
   heroAnnotation: {
     line1: "30 und",
     line2: "immer noch",
     line3: "our duo <3"
   },
 
-  // ─── 💬 ZITATE ────────────────────────────────
-  // Rechte Spalte (mit Medaille)
   quoteRight: {
     text: "Hardstuck?\nNein.\nLifestyle.",
     from: "– dein Onkel & Duo"
   },
 
-  // Unteres Panel (neben Valorant-Logo)
   quoteBottom: {
     text: "Es ist nicht nur ein Spiel.\nEs ist unsere Lobby.",
     from: "– seit gefühlt immer"
   },
 
-  // ─── ⚔️ ABILITIES (unteres Panel) ────────────
   passiveAbility: {
     name: "Du machst jede Lobby einfach so.",
     tag: "PASSIVE"
@@ -50,31 +40,15 @@ const CONFIG = {
     tag: "ULT READY"
   },
 
-  // ─── ⏰ DAILY MISSIONS (unteres Panel) ───────
-  // Lustige "tägliche Aufgaben" zur Deko
   dailyMissions: [
     { icon: "🎯", text: "Spiele eine Runde mit uns",              progress: "0/1", xp: "+200 XP" },
     { icon: "💬", text: 'Sage: "einer low" ohne Ping',            progress: "0/1", xp: "+150 XP" },
     { icon: "💧", text: "Trinke genug Wasser (unwahrscheinlich)", progress: "0/2", xp: "+100 XP" },
   ],
 
-  // ─── 📅 SEASON-ENDE (unteres Panel) ──────────
   seasonEnd: "NIEMALS",
-  seasonEndSub: "30. GEBURTSTAG 🎂",
+  seasonEndSub: "30. GEBURTSTAG 🌸",
 
-
-  // ╔════════════════════════════════════════════════════════════╗
-  // ║  🎯 MISSIONEN (30 Stück)                                  ║
-  // ║                                                            ║
-  // ║  Jede Mission hat:                                         ║
-  // ║    title  → Name der Mission                               ║
-  // ║    desc   → Kurze Beschreibung (was man tun muss)          ║
-  // ║    icon   → Emoji                                          ║
-  // ║    type   → Label (MISSION, CHALLENGE, QUEST, FINALE)      ║
-  // ║                                                            ║
-  // ║  Nana kann die Missionen in beliebiger Reihenfolge         ║
-  // ║  abschließen. Jeder Abschluss = nächstes Level.            ║
-  // ╚════════════════════════════════════════════════════════════╝
   missions: [
     { title: "Gemeinsames Frühstück",      desc: "Frühstückt zusammen – Café oder Pancakes zuhause.",              icon: "🥞", type: "MISSION" },
     { title: "Film-Nacht",                 desc: "Einen Film schauen – Nana darf wählen.",                          icon: "🎬", type: "MISSION" },
@@ -108,16 +82,6 @@ const CONFIG = {
     { title: "FINALE: Geburtstags-Party",  desc: "Die legendäre 30th-Birthday-Party – alles darf, nichts muss!",   icon: "🎉", type: "FINALE" },
   ],
 
-
-  // ╔════════════════════════════════════════════════════════════╗
-  // ║  🎁 BELOHNUNGEN (30 Stück)                                ║
-  // ║                                                            ║
-  // ║  Belohnung Nr. 1 = wird bei Level 1 vergeben,              ║
-  // ║  Nr. 2 = bei Level 2, usw.                                 ║
-  // ║                                                            ║
-  // ║  ⚠ Nana sieht die Belohnung ERST nachdem sie auf die      ║
-  // ║    Geschenkbox tippt – vorher ist alles verdeckt!          ║
-  // ╚════════════════════════════════════════════════════════════╝
   rewards: [
     { name: "Mystery Sticker Pack",        desc: "5 handverlesene Sticker für dein nächstes Abenteuer." },
     { name: "Lieblings-Snack Box",         desc: "Eine Box voller Lieblingssnacks – zusammengestellt mit Liebe." },
@@ -148,6 +112,6 @@ const CONFIG = {
     { name: "Dance Lesson Voucher",        desc: "Eine gemeinsame Tanzstunde – Stil wählst du." },
     { name: "Memory Book Seite",           desc: "Eine Seite in eurem Erinnerungsbuch – ausgefüllt von mir." },
     { name: "Wunsch frei ⭐",              desc: "Ein fairer, erfüllbarer Wunsch – du wählst, ich mache." },
-    { name: "🏆 LEGENDÄRE ÜBERRASCHUNG",  desc: "Alle 30 Levels geschafft! Die finale Überraschung wird dir persönlich übergeben." },
+    { name: "🌸 LEGENDÄRE ÜBERRASCHUNG",  desc: "Alle 30 Levels geschafft! Die finale Überraschung wird dir persönlich übergeben." },
   ],
 };

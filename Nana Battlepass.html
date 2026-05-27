@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NANA'S BATTLEPASS 🌸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink:   #ff7eb3;
+  --pink2:  #e8558a;
+  --pink3:  #b83068;
+  --rose:   #ffb8ce;
+  --gold:   #e8c46a;
+  --gold2:  #c9a040;
+  --peach:  #ffd4a8;
+  --lav:    #f0b8d0;
+  --lav2:   #e8a0bc;
+  --bg0:    #1a0c14;
+  --bg1:    #221018;
+  --bg2:    #2c1420;
+  --bg3:    #3a1c2c;
+  --bg4:    #482438;
+  --card:   #2a1020;
+  --cardhv: #38162e;
+  --bdr:    rgba(255,126,179,.18);
+  --bdrl:   rgba(255,126,179,.40);
+  --tx:     #fff0f5;
+  --tx2:    #ffd4e8;
+  --muted:  #e8a0bc;
+  --muted2: #aa6880;
+  --ft:     'Barlow Condensed', sans-serif;
+  --fb:     'Nunito', sans-serif;
+  --fm:     'Share Tech Mono', monospace;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { height:100%; }
+body {
+  height:100%; min-height:100vh;
+  background:var(--bg0);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(232,196,106,.06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 90% 20%, rgba(255,126,179,.07) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 40% at 5% 80%, rgba(232,196,106,.04) 0%, transparent 50%);
+  color:var(--tx); font-family:var(--fb);
+  overflow:hidden;
+}
+
+/* ── tiny sparkle stars in bg ── */
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 12%,rgba(255,255,255,.55),transparent),
+    radial-gradient(1px 1px at 17% 35%,rgba(255,255,255,.4),transparent),
+    radial-gradient(2px 2px at 26% 8%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1px 1px at 35% 55%,rgba(255,255,255,.35),transparent),
+    radial-gradient(1.5px 1.5px at 44% 18%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1px 1px at 52% 42%,rgba(255,255,255,.4),transparent),
+    radial-gradient(2px 2px at 60% 7%,rgba(255,255,255,.55),transparent),
+    radial-gradient(1px 1px at 68% 30%,rgba(255,255,255,.45),transparent),
+    radial-gradient(1.5px 1.5px at 76% 15%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1px 1px at 84% 48%,rgba(255,255,255,.35),transparent),
+    radial-gradient(2px 2px at 91% 22%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1px 1px at 96% 60%,rgba(255,255,255,.4),transparent),
+    radial-gradient(1.5px 1.5px at 4% 70%,rgba(255,255,255,.3),transparent),
+    radial-gradient(1px 1px at 13% 82%,rgba(255,255,255,.25),transparent),
+    radial-gradient(2px 2px at 22% 67%,rgba(255,255,255,.35),transparent),
+    radial-gradient(1px 1px at 78% 75%,rgba(255,255,255,.3),transparent),
+    radial-gradient(1.5px 1.5px at 88% 85%,rgba(255,255,255,.4),transparent);
+}
+
+/* ══ APP LAYOUT ══ */
+.app { display:flex; height:100vh; overflow:hidden; position:relative; z-index:1; }
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width:200px; min-width:200px;
+  background:rgba(26,12,20,.95);
+  border-right:1px solid var(--bdr);
+  display:flex; flex-direction:column; z-index:10;
+  backdrop-filter:blur(12px);
+}
+.sb-logo {
+  padding:24px 18px 20px;
+  border-bottom:1px solid var(--bdr);
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+}
+.sb-logo svg {
+  width:58px; height:58px; flex-shrink:0;
+  filter:drop-shadow(0 0 14px rgba(255,107,157,.9)) drop-shadow(0 0 28px rgba(255,107,157,.35));
+}
+.sb-brand {
+  font-family:var(--ft); font-size:19px; font-weight:900;
+  letter-spacing:1.5px; line-height:1.2;
+  color:var(--pink); text-align:center;
+}
+.sb-brand span { display:block; font-size:10px; letter-spacing:2.5px; color:var(--muted); font-weight:700; text-transform:uppercase; margin-top:2px; }
+
+.nav { flex:1; padding:8px 0; }
+.nav-i {
+  display:flex; align-items:center; gap:10px;
+  padding:10px 17px;
+  font-family:var(--fb); font-size:13.5px; font-weight:700;
+  color:var(--muted); cursor:pointer;
+  border-left:3px solid transparent;
+  transition:all .15s; border-radius:0 8px 8px 0; margin:1px 6px 1px 0;
+}
+.nav-i:hover { color:var(--tx); background:rgba(255,126,179,.06); }
+.nav-i.on {
+  color:#fff;
+  background:linear-gradient(90deg,rgba(255,126,179,.16),rgba(232,196,106,.04) 80%);
+  border-left-color:var(--pink);
+}
+.nav-i .ni { font-size:13px; width:18px; text-align:center; }
+
+.sb-bot { padding:12px 15px 16px; border-top:1px solid var(--bdr); }
+.sb-pchip { display:flex; align-items:center; gap:9px; background:rgba(255,107,157,.08); border:1px solid var(--bdr); border-radius:20px; padding:7px 12px 7px 7px; margin-bottom:10px; }
+.sb-ep { font-size:11px; color:var(--muted2); font-weight:700; letter-spacing:1px; }
+
+/* ── MAIN ── */
+.main { flex:1; display:flex; flex-direction:column; overflow:hidden; min-width:0; }
+
+/* ── TOPBAR ── */
+.top {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 24px; height:50px; flex-shrink:0;
+  background:rgba(26,12,20,.9);
+  border-bottom:1px solid var(--bdr);
+  backdrop-filter:blur(8px); z-index:10;
+}
+.top-ep { font-family:var(--ft); font-size:13px; font-weight:700; letter-spacing:2.5px; color:var(--muted); text-transform:uppercase; }
+.top-ep b { color:var(--tx2); }
+.pchip {
+  display:flex; align-items:center; gap:10px;
+  background:rgba(255,107,157,.08); border:1px solid var(--bdr);
+  padding:8px 22px 8px 8px; border-radius:30px; cursor:pointer;
+  transition:all .15s;
+}
+.pchip:hover { background:rgba(255,107,157,.14); border-color:var(--bdrl); }
+.pav {
+  width:36px; height:36px;
+  background:linear-gradient(135deg,#ff6b9d,#c03570);
+  display:flex; align-items:center; justify-content:center;
+  border-radius:50%; font-size:13.5px;
+  box-shadow:0 0 14px rgba(255,107,157,.4);
+}
+.pnm { font-family:var(--fb); font-size:13px; font-weight:800; color:#fff; }
+.plv { font-family:var(--fm); font-size:13px; color:var(--pink); margin-top:1px; }
+
+/* ── CONTENT ── */
+.cnt { flex:1; display:flex; overflow:hidden; min-height:0; }
+.lcol { flex:1; display:flex; flex-direction:column; overflow-y:auto; min-width:0;
+  scrollbar-width:thin; scrollbar-color:var(--bdr) transparent; }
+.lcol::-webkit-scrollbar { width:4px; }
+.lcol::-webkit-scrollbar-thumb { background:var(--bdr); border-radius:4px; }
+
+/* ── HERO ── */
+.hero {
+  position:relative; flex-shrink:0; height:300px; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+.hbg {
+  position:absolute; inset:0;
+  background:
+    linear-gradient(to bottom, transparent 65%, var(--bg0) 100%),
+    radial-gradient(ellipse 60% 130% at 82% 50%,rgba(210,60,110,.22) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 70% at 96% 15%,rgba(200,140,60,.12) 0%,transparent 50%),
+    linear-gradient(145deg,#160a10 0%,#1e0e18 45%,#160c10 100%);
+}
+/* petal glows */
+.h-petals {
+  position:absolute; inset:0; z-index:1;
+  background:
+    radial-gradient(ellipse 9% 60% at 65% 1%,rgba(255,126,179,.30),transparent),
+    radial-gradient(ellipse 5% 42% at 70% 15%,rgba(255,126,179,.18),transparent),
+    radial-gradient(ellipse 22% 28% at 54% 96%,rgba(232,196,106,.08),transparent),
+    radial-gradient(ellipse 12% 25% at 88% 85%,rgba(255,126,179,.07),transparent);
+}
+.h-hero-img {
+  position:absolute; z-index:2;
+  right:-60px; top:50%; transform:translateY(-50%);
+  width:500px; opacity:.85;
+  mix-blend-mode:screen;
+  pointer-events:none;
+  filter:saturate(1.2) brightness(1.05);
+  mask-image:
+    linear-gradient(to right, transparent 0%, black 35%),
+    linear-gradient(to top, transparent 0%, black 48%);
+  mask-composite:intersect;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, black 35%),
+    linear-gradient(to top, transparent 0%, black 48%);
+  -webkit-mask-composite:source-in;
+}
+/* Moon */
+.h-moon-wrap {
+  position:absolute; z-index:2;
+  right:30px; top:4px; width:252px; height:252px;
+}
+.h-moon {
+  position:absolute; inset:0; border-radius:50%;
+  background:radial-gradient(circle at 38% 36%,#fff8f0 0%,#fce0c8 18%,#f0a070 45%,rgba(140,60,40,.45) 74%,transparent 91%);
+  box-shadow:0 0 55px rgba(232,196,106,.35),0 0 110px rgba(232,160,100,.14),inset -12px 14px 36px rgba(160,80,40,.18);
+}
+.h-moon::after {
+  content:''; position:absolute; top:-8%; left:23%; width:88%; height:88%;
+  border-radius:50%;
+  background:radial-gradient(ellipse at 42% 42%,#120808 42%,#1a0c0e 100%);
+  box-shadow:inset 4px -4px 20px rgba(18,6,6,.98);
+}
+.h-moonring { position:absolute; inset:-24px; border-radius:50%; border:1px solid rgba(232,196,106,.10); box-shadow:0 0 32px rgba(232,196,106,.09); }
+.h-moonring2 { inset:-52px; border-color:rgba(232,196,106,.04); }
+.h-moon-wrap::after {
+  content:''; position:absolute; bottom:-18px; left:50%; transform:translateX(-50%);
+  width:230px; height:90px;
+  background:radial-gradient(ellipse,rgba(232,196,106,.12),transparent 70%);
+}
+.h-moon-wrap::before {
+  content:''; position:absolute; bottom:0; left:-12px; right:-12px; height:70px;
+  background:linear-gradient(0deg,var(--bg0),transparent); z-index:3;
+}
+/* Lotus BG watermark */
+.h-lotus-wm { position:absolute; z-index:1; right:146px; top:52px; width:188px; height:188px; opacity:.04; }
+
+.htxt { position:relative; z-index:5; padding:0 36px 32px; }
+.h-ep { font-family:var(--ft); font-size:13px; font-weight:700; letter-spacing:3px; color:var(--muted2); text-transform:uppercase; margin-bottom:6px; }
+.h-ep b { color:var(--tx2); }
+.h-title {
+  font-family:var(--ft); font-size:68px; font-weight:900;
+  line-height:.88; text-transform:uppercase; color:#fff; letter-spacing:-1px;
+  text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+.h-title-k {
+  color:var(--pink); font-style:italic; font-size:78px;
+  text-shadow:0 0 28px rgba(255,107,157,.55),0 0 55px rgba(255,107,157,.18);
+}
+.h-sub {
+  font-family:'Georgia',serif; font-size:22px; font-style:italic;
+  color:var(--rose); margin:4px 0 8px;
+  text-shadow:0 0 18px rgba(255,107,157,.3);
+  display:inline-flex; align-items:center; gap:10px;
+}
+.h-sub::before,.h-sub::after { content:''; display:block; width:38px; height:1px; background:linear-gradient(90deg,transparent,var(--pink)); }
+.h-sub::after { background:linear-gradient(90deg,var(--pink),transparent); }
+.h-desc { font-family:var(--ft); font-size:13px; font-weight:700; letter-spacing:2.5px; color:var(--muted); text-transform:uppercase; margin-bottom:12px; }
+.h-btns { display:flex; gap:10px; align-items:center; }
+.h-anno {
+  position:absolute; z-index:6; right:296px; top:24px;
+  font-family:var(--ft); font-size:13px; font-weight:700; font-style:italic;
+  color:var(--muted); text-align:center; line-height:1.55;
+}
+.h-anno .big { color:var(--pink); font-size:14.5px; font-weight:900; }
+
+/* Buttons */
+.btn-r {
+  background:linear-gradient(135deg,var(--pink),var(--pink2));
+  color:#fff; border:none; padding:10px 22px;
+  font-family:var(--ft); font-size:13px; font-weight:800; letter-spacing:2px; text-transform:uppercase;
+  cursor:pointer; border-radius:8px; white-space:nowrap;
+  box-shadow:0 4px 18px rgba(255,107,157,.35);
+  transition:all .18s;
+}
+.btn-r:hover { box-shadow:0 6px 28px rgba(255,107,157,.55); transform:translateY(-2px); }
+.btn-g {
+  background:rgba(255,255,255,.06); color:var(--muted);
+  border:1px solid rgba(255,255,255,.12);
+  padding:10px 22px; font-family:var(--ft); font-size:14px; font-weight:800;
+  letter-spacing:2px; text-transform:uppercase; cursor:pointer;
+  border-radius:8px; display:flex; align-items:center; gap:8px;
+  transition:all .18s;
+}
+.btn-g:hover { border-color:rgba(255,255,255,.25); color:#ddd; background:rgba(255,255,255,.1); }
+.play-c {
+  width:20px; height:20px; border:1.5px solid currentColor; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:13px;
+}
+
+/* ── BP SCREEN ── */
+.bp-screen { flex:1; display:flex; flex-direction:column; flex-shrink:0; min-height:0; }
+.bp-center { flex:1; display:flex; flex-direction:column; justify-content:center; }
+.sec-hdr {
+  display:flex; align-items:center; gap:10px;
+  padding:10px 28px 10px; flex-shrink:0;
+}
+.sec-hdr-line { flex:1; height:1px; background:linear-gradient(90deg,var(--bdr),transparent); }
+.sec-hdr-t {
+  font-family:var(--ft); font-size:13px; font-weight:800;
+  letter-spacing:3px; color:var(--muted); text-transform:uppercase; white-space:nowrap;
+}
+.sec-hdr-badge {
+  background:linear-gradient(135deg,var(--pink),var(--gold2));
+  color:#fff; font-family:var(--ft); font-size:13px; font-weight:800;
+  letter-spacing:1px; padding:2px 8px; border-radius:20px;
+}
+
+/* ── BP CARDS ── */
+.bp-scroll-area {
+  padding:32px 44px 20px; overflow-x:auto; flex-shrink:0;
+  scrollbar-width:thin; scrollbar-color:var(--bdr) transparent;
+}
+.bp-scroll-area::-webkit-scrollbar { height:4px; }
+.bp-scroll-area::-webkit-scrollbar-track { margin:0 44px; background:transparent; }
+.bp-scroll-area::-webkit-scrollbar-thumb { background:rgba(255,126,179,.3); border-radius:4px; }
+.bp-r { display:flex; gap:8px; width:max-content; }
+
+.bpc {
+  width:116px; min-width:116px;
+  background:var(--card); border:1px solid rgba(255,126,179,.12);
+  border-radius:12px; padding:10px 10px 12px;
+  cursor:pointer; transition:all .18s; position:relative; overflow:hidden;
+  display:flex; flex-direction:column; gap:0;
+}
+.bpc:hover { border-color:rgba(255,126,179,.32); transform:translateY(-3px); background:var(--cardhv); box-shadow:0 10px 28px rgba(255,126,179,.15); }
+@property --card-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.bpc.cur {
+  border:none;
+  background:linear-gradient(135deg,#3c1828,#2e1020);
+  box-shadow:0 0 20px rgba(255,126,179,.18),0 0 40px rgba(255,126,179,.07);
+  animation:none;
+  position:relative;
+}
+.bpc.cur::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:12px;
+  padding:2px;
+  background:conic-gradient(
+    from var(--card-angle),
+    transparent 0deg,
+    transparent 290deg,
+    rgba(255,126,179,.25) 320deg,
+    rgba(255,210,225,1) 355deg,
+    transparent 360deg
+  );
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:destination-out;
+  mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  mask-composite:exclude;
+  animation:card-dot-orbit 2.5s linear infinite;
+}
+.bpc.cur::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:12px;
+  border:1.5px solid rgba(255,126,179,.22);
+}
+@keyframes card-dot-orbit {
+  from { --card-angle:0deg; }
+  to   { --card-angle:360deg; }
+}
+.bpc.cur::before {
+  content:''; position:absolute; inset:0; border-radius:11px;
+  background:radial-gradient(ellipse 90% 70% at 50% 100%,rgba(255,107,157,.09),transparent);
+}
+.bpc.done {
+  border-color:rgba(232,196,106,.25);
+  background:linear-gradient(135deg,rgba(255,126,179,.06),rgba(232,196,106,.04));
+}
+.bpc.done::after {
+  content:'✓'; position:absolute; top:6px; right:8px;
+  color:var(--gold); font-size:20px; font-weight:900; opacity:.95;
+}
+
+.bpc.lk { opacity:.38; cursor:not-allowed; }
+.bpc.lk:hover { transform:none; box-shadow:none; background:var(--card); border-color:rgba(255,126,179,.12); }
+
+.bpc-h { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; }
+.bpc-n { font-family:var(--ft); font-size:24px; font-weight:900; color:rgba(255,255,255,.35); line-height:1; }
+.bpc.cur .bpc-n { color:var(--pink); text-shadow:0 0 10px rgba(255,107,157,.5); }
+.bpc.done .bpc-n { color:rgba(255,107,157,.5); }
+.bpc-type {
+  font-family:var(--ft); font-size:13px; font-weight:800; letter-spacing:1.5px;
+  padding:2px 6px; border-radius:4px; text-transform:uppercase;
+  background:rgba(255,126,179,.08); color:var(--muted);
+}
+.bpc.cur .bpc-type { background:rgba(255,107,157,.18); color:var(--pink); }
+.bpc.done .bpc-type { background:rgba(255,107,157,.12); color:var(--rose); }
+
+.bpc-ic { font-size:44px; text-align:center; display:flex; align-items:center; justify-content:center; flex:1; line-height:1; }
+.bpc-nm { font-family:var(--fb); font-size:14.5px; font-weight:700; color:var(--tx2); line-height:1.25; text-align:center; }
+.bpc.done .bpc-nm { color:var(--rose); font-size:13.5px; }
+.bpc.lk   { transform:scale(.82); transform-origin:bottom center; }
+.bpc.lk:hover { transform:scale(.84); }
+.bpc.done { transform:scale(.88); transform-origin:bottom center; }
+.bpc.cur  { transform:scale(1.06); transform-origin:bottom center; }
+
+/* Milestone card extra flair */
+.bpc.mile { border-color:rgba(232,196,106,.30); }
+.bpc.mile .bpc-n { color:var(--gold); }
+
+/* Final card */
+.bpc-f {
+  width:148px; min-width:148px;
+  background:linear-gradient(135deg,#1e0f38,#2c1458,#1a0f30);
+  border:1px solid rgba(196,181,253,.30);
+  border-radius:14px; padding:10px 10px 12px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+  box-shadow:0 0 28px rgba(196,181,253,.08);
+}
+.bpc-f::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 60%,rgba(196,181,253,.06),transparent);
+}
+.bpc-f::after {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--lav2),transparent);
+  border-radius:14px 14px 0 0;
+}
+.f-num { font-family:var(--ft); font-size:28px; font-weight:900; color:var(--lav); position:relative; z-index:1; }
+.f-ic { font-size:48px; margin:2px 0 3px; filter:drop-shadow(0 0 14px rgba(196,181,253,.5)); position:relative; z-index:1; }
+.f-lbl { font-family:var(--ft); font-size:8px; font-weight:800; letter-spacing:2.5px; color:var(--muted2); text-transform:uppercase; z-index:1; }
+.f-title { font-family:var(--ft); font-size:26px; font-weight:900; color:var(--lav); text-transform:uppercase; letter-spacing:2px; text-shadow:0 0 20px rgba(196,181,253,.55); position:relative; z-index:1; }
+
+/* ── TIMELINE ── */
+.tl-w { padding:0 28px; flex-shrink:0; }
+.tl-r { display:flex; align-items:center; overflow-x:auto; scrollbar-width:none; padding:36px 0; }
+.tl-r::before,.tl-r::after { content:''; margin:auto; }
+.tl-r::-webkit-scrollbar { display:none; }
+.tl-n { display:flex; flex-direction:column; align-items:center; flex-shrink:0; }
+.td {
+  width:26px; height:26px; border-radius:50%;
+  border:2px solid rgba(255,126,179,.16);
+  background:var(--bg3);
+  display:flex; align-items:center; justify-content:center;
+  font-size:8px; font-family:var(--fm); color:var(--muted2);
+  transition:all .22s; flex-shrink:0;
+}
+.td.done { background:var(--pink2); border-color:var(--pink); box-shadow:0 0 10px rgba(255,126,179,.5); }
+.td.done::after { content:'✓'; color:#fff; font-size:13px; font-weight:800; }
+.td.cur {
+  background:var(--pink); border-color:#ffb8ce;
+  box-shadow:0 0 16px rgba(255,126,179,.75),0 0 32px rgba(255,126,179,.35);
+  animation:tp 1.8s ease-in-out infinite;
+  width:30px; height:30px;
+}
+.td.mile {
+  border-radius:6px; width:28px; height:28px;
+  border-color:rgba(232,196,106,.45); background:var(--bg4);
+  font-size:13px; color:var(--gold);
+}
+.td.mile.done { background:var(--gold2); border-color:var(--gold); box-shadow:0 0 10px rgba(232,196,106,.5); }
+.td.big { width:32px; height:32px; }
+@keyframes tp {
+  0%,100% { box-shadow:0 0 10px rgba(255,107,157,.5); }
+  50%      { box-shadow:0 0 20px rgba(255,107,157,.8),0 0 40px rgba(255,107,157,.3); }
+}
+.tl-l { width:24px; height:3px; background:rgba(255,126,179,.09); flex-shrink:0; border-radius:3px; }
+.tl-l.done { background:linear-gradient(90deg,var(--pink2),var(--pink)); box-shadow:0 0 6px rgba(255,126,179,.35); }
+.tl-lb { font-family:var(--fm); font-size:13.5px; color:var(--muted2); margin-top:4px; height:14px; text-align:center; font-weight:600; }
+
+/* ── BOTTOM PANELS ── */
+.bot { flex-shrink:0; display:flex; gap:8px; padding:8px 28px 16px; }
+.bb {
+  background:rgba(42,16,32,.65);
+  border:1px solid rgba(255,126,179,.13);
+  border-radius:14px; padding:12px 14px;
+  position:relative; overflow:hidden;
+  backdrop-filter:blur(4px);
+}
+.bb::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--pink),var(--gold),transparent);
+  border-radius:14px 14px 0 0;
+}
+.bb.daily  { flex:2.2; }
+.bb.quote  { flex:1.1; display:flex; align-items:center; gap:12px; }
+.bb.abil   { flex:1; }
+.bb.season { flex:.85; }
+
+.bb-t {
+  font-family:var(--ft); font-size:13.5px; font-weight:800;
+  letter-spacing:2.5px; color:var(--pink); text-transform:uppercase;
+  margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;
+}
+.bb-timer { font-family:var(--fm); font-size:8px; color:var(--muted2); display:flex; align-items:center; gap:3px; }
+.dm { display:flex; align-items:center; gap:7px; margin-bottom:5px; }
+.dm:last-child { margin-bottom:0; }
+.dm-i { width:16px; height:16px; border-radius:50%; border:1px solid var(--bdr); display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0; }
+.dm-t { flex:1; font-size:14.5px; font-weight:600; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.dm-p { font-family:var(--fm); font-size:8px; color:var(--muted2); flex-shrink:0; }
+.dm-x { font-family:var(--ft); font-size:13.5px; font-weight:800; color:var(--pink); flex-shrink:0; }
+
+.bq-ic { font-size:28px; flex-shrink:0; filter:drop-shadow(0 0 8px rgba(196,181,253,.5)); }
+.bq-t { font-family:var(--fb); font-size:14.5px; font-weight:700; font-style:italic; color:#fff; line-height:1.4; }
+.bq-f { font-size:8px; color:var(--pink); margin-top:4px; }
+
+.ab-h { font-family:var(--ft); font-size:13px; font-weight:800; letter-spacing:2px; color:var(--lav); text-transform:uppercase; margin-bottom:6px; }
+.ab-c { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+.ab-i { width:30px; height:30px; border:1px solid var(--bdr); border-radius:8px; background:rgba(196,181,253,.07); display:flex; align-items:center; justify-content:center; font-size:13.5px; flex-shrink:0; }
+.ab-t { font-size:14.5px; font-weight:600; color:var(--muted); line-height:1.3; }
+.ab-tag { font-family:var(--ft); font-size:8px; font-weight:700; letter-spacing:1px; color:var(--lav2); border:1px solid rgba(196,181,253,.2); border-radius:4px; display:inline-block; padding:1px 5px; margin-top:2px; }
+
+.s-l { font-family:var(--ft); font-size:13px; font-weight:800; letter-spacing:2px; color:var(--pink); text-transform:uppercase; margin-bottom:4px; }
+.s-d { font-family:var(--ft); font-size:26px; font-weight:900; color:var(--pink); line-height:1; text-shadow:0 0 16px rgba(255,107,157,.4); }
+.s-s { font-family:var(--fb); font-size:14.5px; font-weight:700; color:var(--muted); margin-top:4px; }
+.s-cake { position:absolute; right:10px; bottom:8px; font-size:24px; opacity:.8; }
+
+/* ── RIGHT COLUMN ── */
+.rcol {
+  width:292px; min-width:292px;
+  border-left:1px solid var(--bdr);
+  display:flex; flex-direction:column;
+  background:rgba(26,10,18,.8);
+  overflow-y:auto; backdrop-filter:blur(6px);
+  scrollbar-width:thin; scrollbar-color:var(--bdr) transparent;
+}
+.rcol::-webkit-scrollbar { width:4px; }
+.rcol::-webkit-scrollbar-thumb { background:var(--bdr); border-radius:4px; }
+
+.rl { padding:18px 16px 14px; border-bottom:1px solid var(--bdr); }
+.rl-l { font-family:var(--ft); font-size:13px; font-weight:800; letter-spacing:3.5px; color:var(--muted2); text-transform:uppercase; margin-bottom:1px; }
+.rl-n { font-family:var(--ft); font-size:64px; font-weight:900; line-height:1; color:#fff; display:flex; align-items:baseline; gap:3px; }
+.rl-sep { color:rgba(196,181,253,.3); font-size:42px; font-style:italic; }
+.rl-tot { color:var(--muted2); font-size:42px; }
+.rl-sub { font-family:var(--fm); font-size:13px; color:var(--muted2); margin:3px 0 8px; letter-spacing:1px; }
+.xp-track { height:8px; background:rgba(255,255,255,.05); border-radius:8px; position:relative; overflow:visible; margin-bottom:2px; }
+.xp-f {
+  height:100%; border-radius:8px;
+  background:linear-gradient(90deg,var(--pink3),var(--pink),var(--gold));
+  transition:width .9s cubic-bezier(.34,1.2,.64,1); position:relative;
+  box-shadow:0 0 10px rgba(255,107,157,.4);
+}
+.xp-f::after {
+  content:''; position:absolute; right:-6px; top:-4px;
+  width:16px; height:16px; background:var(--pink); border-radius:50%;
+  box-shadow:0 0 10px var(--pink),0 0 22px rgba(255,107,157,.5);
+  border:2px solid rgba(255,255,255,.25);
+}
+.xp-p { font-family:var(--fm); font-size:8px; color:var(--pink); text-align:right; margin-top:7px; }
+
+.rq {
+  padding:14px 15px; border-bottom:1px solid var(--bdr);
+  background:linear-gradient(135deg,rgba(255,126,179,.05),rgba(232,196,106,.02));
+  position:relative;
+}
+.rq-qm { position:absolute; top:4px; left:12px; font-family:Georgia,serif; font-size:44px; color:var(--pink); opacity:.14; line-height:1; }
+.rq-t { font-family:var(--fb); font-size:18.5px; font-weight:700; font-style:italic; color:var(--tx2); line-height:1.42; padding-left:14px; position:relative; z-index:1; }
+.rq-f { font-size:8px; color:var(--pink); margin-top:5px; padding-left:14px; }
+.rq-m { position:absolute; right:10px; top:10px; filter:drop-shadow(0 0 8px rgba(196,181,253,.55)); }
+
+.rt { display:flex; border-bottom:1px solid var(--bdr); flex-shrink:0; }
+.rtb {
+  flex:1; padding:10px 4px; text-align:center;
+  font-family:var(--fb); font-size:14px; font-weight:700;
+  color:var(--muted2); cursor:pointer;
+  border-bottom:2px solid transparent; transition:all .15s;
+}
+.rtb:hover { color:var(--muted); }
+.rtb.on { color:#fff; border-bottom-color:var(--pink); background:rgba(255,107,157,.05); }
+
+.ml { flex:1; overflow-y:auto; scrollbar-width:thin; scrollbar-color:var(--bdr) transparent; }
+.ml::-webkit-scrollbar { width:3px; }
+.ml::-webkit-scrollbar-thumb { background:var(--bdr); border-radius:3px; }
+.mi {
+  padding:10px 15px; border-bottom:1px solid var(--bdr);
+  cursor:pointer; transition:all .15s;
+  display:flex; align-items:flex-start; gap:9px; position:relative;
+}
+.mi:hover { background:rgba(255,107,157,.04); }
+.mi.dn { opacity:.45; cursor:default; }
+.mi.dn:hover { background:none; }
+.mi-i {
+  width:28px; height:28px; background:rgba(196,181,253,.06);
+  border:1px solid var(--bdr); border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; flex-shrink:0;
+}
+.mi.dn .mi-i { border-color:rgba(255,107,157,.22); background:rgba(255,107,157,.06); }
+.mi-b { flex:1; min-width:0; }
+.mi-num { font-family:var(--fm); font-size:13px; color:var(--muted2); letter-spacing:1px; }
+.mi-t { font-family:var(--fb); font-size:13.5px; font-weight:700; color:var(--tx2); line-height:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.mi-d { font-size:13.5px; color:var(--muted2); line-height:1.35; margin-top:1px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.mi-rw { font-size:14.5px; color:var(--gold); margin-top:3px; font-weight:700; font-family:var(--ft); letter-spacing:.5px; }
+.mi-xp { font-family:var(--ft); font-size:13px; font-weight:800; color:var(--pink); flex-shrink:0; align-self:center; background:rgba(255,107,157,.1); padding:2px 7px; border-radius:6px; }
+.mi-ck { position:absolute; right:11px; top:50%; transform:translateY(-50%); color:var(--pink); font-size:14.5px; }
+
+/* ── MODALS ── */
+.ov {
+  position:fixed; inset:0;
+  background:rgba(10,5,22,.85);
+  backdrop-filter:blur(12px); z-index:1000;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .22s;
+}
+.ov.open { opacity:1; pointer-events:all; }
+.mdl {
+  background:linear-gradient(135deg,#221018,#2e1420,#1c0c14);
+  border:1px solid rgba(255,107,157,.28);
+  width:430px; max-width:94vw; border-radius:20px;
+  position:relative;
+  box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 40px rgba(255,107,157,.08);
+  transform:scale(.92) translateY(14px);
+  transition:transform .28s cubic-bezier(.34,1.56,.64,1);
+}
+.ov.open .mdl { transform:scale(1) translateY(0); }
+.mdl::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--pink),var(--gold),transparent); border-radius:20px 20px 0 0; }
+.mx { position:absolute; top:12px; right:14px; background:rgba(255,255,255,.07); border:none; color:var(--muted); font-size:14.5px; cursor:pointer; z-index:5; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .15s; }
+.mx:hover { color:#fff; background:rgba(255,107,157,.2); }
+.mb { padding:30px 28px 24px; text-align:center; }
+.m-em { font-size:48px; margin-bottom:10px; display:block; filter:drop-shadow(0 4px 12px rgba(0,0,0,.4)); }
+.m-tag { font-family:var(--ft); font-size:16px; font-weight:800; letter-spacing:3px; color:var(--pink); text-transform:uppercase; margin-bottom:9px; }
+.m-nm { font-family:var(--ft); font-size:30px; font-weight:900; color:#fff; margin-bottom:8px; }
+.m-ds { font-size:15px; color:var(--muted); line-height:1.6; margin-bottom:22px; }
+.m-acts { display:flex; gap:8px; }
+.m-acts .btn-r, .m-acts .btn-g { flex:1; justify-content:center; border-radius:10px; }
+
+.rw-badge { font-family:var(--ft); font-size:13px; font-weight:800; letter-spacing:3px; color:var(--pink); border:1px solid rgba(255,107,157,.35); border-radius:6px; display:inline-block; padding:3px 10px; text-transform:uppercase; margin-bottom:18px; }
+.rw-box {
+  width:114px; height:114px; margin:0 auto 12px;
+  background:linear-gradient(135deg,#1e0a12,#2e1020);
+  border:2px solid rgba(255,107,157,.4); border-radius:18px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:50px; cursor:pointer;
+  box-shadow:0 0 25px rgba(255,107,157,.15),inset 0 0 20px rgba(255,107,157,.05);
+  animation:rwf 2.5s ease-in-out infinite; transition:transform .2s;
+}
+.rw-box:hover { transform:scale(1.07) translateY(-5px); box-shadow:0 8px 35px rgba(255,107,157,.3); }
+@keyframes rwf { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-6px); } }
+.rw-hint { font-family:var(--ft); font-size:8px; font-weight:800; letter-spacing:2px; color:var(--pink); text-transform:uppercase; animation:rwb 1.3s infinite; }
+@keyframes rwb { 0%,100% { opacity:1; } 50% { opacity:.2; } }
+.rw-rev { display:none; text-align:center; }
+.rw-rev.show { display:block; animation:rwi .35s cubic-bezier(.34,1.56,.64,1); }
+@keyframes rwi { from{opacity:0;transform:scale(.75)} to{opacity:1;transform:scale(1)} }
+.rw-nm { font-family:var(--ft); font-size:27px; font-weight:900; color:var(--gold); text-transform:uppercase; text-shadow:0 0 20px rgba(232,196,106,.55); margin-bottom:8px; letter-spacing:1px; }
+.rw-rd { font-size:8px; color:var(--muted); line-height:1.6; max-width:300px; margin:0 auto; }
+
+/* ── LEVEL UP TOAST ── */
+.lu {
+  position:fixed; top:-100px; left:50%; transform:translateX(-50%); z-index:2000;
+  background:linear-gradient(135deg,#220e18,#2e1422);
+  border:2px solid var(--pink); padding:12px 36px;
+  text-align:center; min-width:200px; border-radius:16px;
+  box-shadow:0 8px 40px rgba(255,107,157,.45),0 0 80px rgba(255,107,157,.15);
+  transition:top .55s cubic-bezier(.34,1.56,.64,1);
+}
+.lu.show { top:24px; }
+.lu-l { font-family:var(--ft); font-size:13px; font-weight:800; letter-spacing:4px; color:var(--pink); text-transform:uppercase; }
+.lu-n { font-family:var(--ft); font-size:46px; font-weight:900; line-height:1; color:#fff; text-shadow:0 0 14px rgba(255,255,255,.08); }
+
+/* ── CONFETTI ── */
+.cfl { position:fixed; inset:0; pointer-events:none; z-index:1999; }
+.cfp { position:absolute; opacity:0; animation:cff 2.2s ease-in forwards; }
+@keyframes cff { 0% { opacity:1; transform:translateY(-10px) rotate(0deg); } 100% { opacity:0; transform:translateY(100vh) rotate(600deg); } }
+
+/* ── PAGES ── */
+.page { display:flex; flex:1; overflow:hidden; width:100%; min-height:0; }
+.page.hidden { display:none !important; }
+.pg-wrap { flex:1; overflow-y:auto; padding:32px 36px; scrollbar-width:thin; scrollbar-color:var(--bdr) transparent; }
+.pg-wrap::-webkit-scrollbar { width:4px; }
+.pg-wrap::-webkit-scrollbar-thumb { background:var(--bdr); border-radius:4px; }
+.pg-hdr { margin-bottom:28px; }
+.pg-title { font-family:var(--ft); font-size:48px; font-weight:900; color:#fff; letter-spacing:1px; text-shadow:0 0 20px rgba(255,126,179,.2); }
+.pg-sub { font-family:var(--fb); font-size:15px; color:var(--muted); margin-top:5px; }
+.pg-stats { display:flex; gap:14px; margin-top:14px; }
+.pg-stat { background:rgba(255,126,179,.07); border:1px solid var(--bdr); border-radius:10px; padding:10px 20px; }
+.pg-stat-n { font-family:var(--ft); font-size:30px; font-weight:900; color:var(--pink); line-height:1; }
+.pg-stat-l { font-family:var(--ft); font-size:8px; letter-spacing:2px; color:var(--muted2); text-transform:uppercase; margin-top:2px; }
+
+/* Mission grid */
+.mission-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:12px; }
+.mg-item { background:var(--card); border:1px solid rgba(255,126,179,.1); border-radius:14px; padding:14px 16px; display:flex; align-items:flex-start; gap:12px; cursor:pointer; transition:all .18s; }
+.mg-item:hover { border-color:rgba(255,126,179,.3); background:var(--cardhv); transform:translateY(-2px); }
+.mg-item.mg-done { border-color:rgba(232,196,106,.28); background:linear-gradient(135deg,rgba(255,126,179,.06),rgba(232,196,106,.03)); cursor:default; }
+.mg-item.mg-done:hover { transform:none; }
+.mg-ic { font-size:26px; flex-shrink:0; width:44px; height:44px; background:rgba(255,126,179,.07); border-radius:10px; display:flex; align-items:center; justify-content:center; }
+.mg-item.mg-done .mg-ic { background:rgba(232,196,106,.08); }
+.mg-body { flex:1; min-width:0; }
+.mg-num { font-family:var(--fm); font-size:8px; color:var(--muted2); letter-spacing:1px; }
+.mg-t { font-family:var(--fb); font-size:13px; font-weight:700; color:#fff; margin:2px 0; }
+.mg-d { font-size:14.5px; color:var(--muted2); line-height:1.4; }
+.mg-badge { display:inline-block; margin-top:5px; font-family:var(--ft); font-size:8px; font-weight:800; letter-spacing:1.5px; padding:2px 8px; border-radius:5px; text-transform:uppercase; }
+.mg-badge.open { background:rgba(255,126,179,.15); color:var(--pink); }
+.mg-badge.done { background:rgba(232,196,106,.15); color:var(--gold); }
+
+/* Rewards grid */
+.reward-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+.rg-item { background:var(--card); border:1px solid rgba(255,126,179,.1); border-radius:14px; padding:20px 16px; text-align:center; transition:all .18s; }
+.rg-item.rg-unlocked { border-color:rgba(232,196,106,.32); background:linear-gradient(135deg,rgba(255,126,179,.07),rgba(232,196,106,.05)); }
+.rg-item.rg-unlocked:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,196,106,.1); }
+.rg-item.rg-locked { opacity:.38; }
+.rg-num { font-family:var(--fm); font-size:8px; color:var(--muted2); letter-spacing:1px; margin-bottom:8px; }
+.rg-ic { font-size:34px; margin-bottom:8px; }
+.rg-name { font-family:var(--ft); font-size:13.5px; font-weight:800; color:var(--gold); text-transform:uppercase; letter-spacing:.5px; margin-bottom:5px; }
+.rg-desc { font-size:14.5px; color:var(--muted); line-height:1.4; }
+.rg-src { font-size:13.5px; color:var(--muted2); margin-top:4px; font-style:italic; }
+.rg-lock-ic { font-size:28px; margin-bottom:6px; opacity:.5; }
+.rg-lock-t { font-family:var(--ft); font-size:13px; font-weight:800; color:var(--muted2); letter-spacing:2px; text-transform:uppercase; }
+
+/* History */
+.hl-empty { text-align:center; padding:64px 20px; }
+.hl-empty-ic { font-size:52px; margin-bottom:14px; opacity:.45; }
+.hl-empty-t { font-family:var(--ft); font-size:20px; font-weight:900; color:var(--muted); text-transform:uppercase; letter-spacing:2px; }
+.hl-empty-s { font-size:8px; color:var(--muted2); margin-top:7px; line-height:1.6; }
+.hl-item { display:flex; align-items:flex-start; gap:16px; padding:16px 0; border-bottom:1px solid var(--bdr); }
+.hl-item:last-child { border-bottom:none; }
+.hl-dot { width:40px; height:40px; border-radius:50%; flex-shrink:0; background:linear-gradient(135deg,var(--pink),var(--pink2)); display:flex; align-items:center; justify-content:center; font-size:13.5px; box-shadow:0 0 14px rgba(255,126,179,.35); }
+.hl-body { flex:1; }
+.hl-lvl { font-family:var(--ft); font-size:13px; font-weight:800; letter-spacing:2px; color:var(--pink); text-transform:uppercase; }
+.hl-title { font-family:var(--fb); font-size:13.5px; font-weight:700; color:#fff; margin:2px 0; }
+.hl-reward { font-size:13px; color:var(--gold); }
+.hl-time { font-family:var(--fm); font-size:13px; color:var(--muted2); margin-top:3px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ═══════════ SIDEBAR ═══════════ -->
+<aside class="sidebar">
+  <div class="sb-logo">
+    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <radialGradient id="pg" cx="50%" cy="30%" r="65%">
+          <stop offset="0%" stop-color="#ffd4e8"/>
+          <stop offset="100%" stop-color="#e8558a"/>
+        </radialGradient>
+        <radialGradient id="pg2" cx="50%" cy="30%" r="65%">
+          <stop offset="0%" stop-color="#ffb3d0"/>
+          <stop offset="100%" stop-color="#c03570"/>
+        </radialGradient>
+      </defs>
+      <!-- soft bg circle -->
+      <circle cx="22" cy="22" r="19" fill="rgba(255,107,157,.08)"/>
+      <g filter="url(#glow)">
+        <!-- 6 inner petals evenly rotated -->
+        <ellipse cx="22" cy="22" rx="3.2" ry="10" fill="url(#pg)" opacity=".9"/>
+        <ellipse cx="22" cy="22" rx="3.2" ry="10" fill="url(#pg)" opacity=".9" transform="rotate(60 22 22)"/>
+        <ellipse cx="22" cy="22" rx="3.2" ry="10" fill="url(#pg)" opacity=".9" transform="rotate(120 22 22)"/>
+        <!-- 3 outer petals offset by 30° -->
+        <ellipse cx="22" cy="22" rx="2.8" ry="9" fill="url(#pg2)" opacity=".7" transform="rotate(30 22 22)"/>
+        <ellipse cx="22" cy="22" rx="2.8" ry="9" fill="url(#pg2)" opacity=".7" transform="rotate(90 22 22)"/>
+        <ellipse cx="22" cy="22" rx="2.8" ry="9" fill="url(#pg2)" opacity=".7" transform="rotate(150 22 22)"/>
+        <!-- center dot -->
+        <circle cx="22" cy="22" r="2.8" fill="#fff" opacity=".75"/>
+      </g>
+    </svg>
+    <div class="sb-brand">NANA'S<span>Battle Pass</span></div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-i on" onclick="showPage('bp',this)"><span class="ni">✦</span>Battle Pass</div>
+    <div class="nav-i" onclick="showPage('missionen',this)"><span class="ni">🗺</span>Missionen</div>
+    <div class="nav-i" onclick="showPage('rewards',this)"><span class="ni">🎁</span>Rewards</div>
+    <div class="nav-i" onclick="showPage('history',this)"><span class="ni">📜</span>History</div>
+  </nav>
+
+  <div class="sb-bot">
+    <div class="sb-pchip">
+      <div class="pav" style="width:32px;height:32px;font-size:15px">🌙</div>
+      <div>
+        <div class="pnm" id="sb-pnm">Lotus Flower 🌸</div>
+        <div class="plv" id="sb-plv">Level 0</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<div class="main">
+  <div class="top">
+    <div class="top-ep"><b>EPISODE 30</b> // ACT I — LOTUS MOON SEASON 🌸</div>
+  </div>
+
+  <!-- CONTENT AREA -->
+  <div class="cnt">
+
+    <!-- ══ PAGE: BATTLE PASS (default) ══ -->
+    <div class="page" id="page-bp">
+    <div class="lcol" id="lcol-main">
+
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hbg"></div>
+        <div class="h-petals"></div>
+        <img class="h-hero-img" src="uploads/0a20805dda5a266a6816ce71f96fc1bc.gif" alt="">
+        <div class="htxt">
+          <div class="h-ep"><b>EPISODE 30</b> // ACT I</div>
+          <div class="h-title">NANA's<br><span class="h-title-k">Battlepass</span></div>
+          <div class="h-sub">🌸 Happy Birthday!</div>
+          <div class="h-desc">Für die beste Gamerin &amp; Duo Partnerin &lt;3</div>
+          <div class="h-btns">
+            <button class="btn-r" onclick="showPage('missionen',document.querySelector('.nav-i:nth-child(2)'))">▶ MISSIONEN ANSCHAUEN</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BP SCREEN: second viewport -->
+      <div class="bp-screen">
+        <div class="bp-center">
+
+          <!-- BATTLE PASS HEADER -->
+          <div class="sec-hdr" id="bp-section">
+            <div class="sec-hdr-t">⟡ Battle Pass — Fortschritt</div>
+            <div class="sec-hdr-badge">Season 30</div>
+            <div class="sec-hdr-line"></div>
+            <div style="font-family:var(--fm);font-size:13px;color:var(--muted2)">← scroll →</div>
+          </div>
+
+          <!-- BP CARDS — all 30, horizontal scroll -->
+          <div class="bp-scroll-area">
+            <div class="bp-r" id="bp-row"></div>
+          </div>
+
+          <!-- TIMELINE -->
+          <div class="tl-w">
+            <div class="tl-r" id="tl-row"></div>
+          </div>
+
+        </div><!-- /bp-center -->
+
+        <!-- BOTTOM PANELS (pinned to bottom) -->
+        <div class="bot">
+        <div class="bb quote">
+          <div class="bq-ic">🌙</div>
+          <div>
+            <div class="bq-t">Hardstuck?<br>Nein.<br>Lifestyle.</div>
+            <div class="bq-f">– dein Onkel &amp; Duo</div>
+          </div>
+        </div>
+        <div class="bb abil">
+          <div class="ab-h">Passives Talent</div>
+          <div class="ab-c">
+            <div class="ab-i">🌸</div>
+            <div>
+              <div class="ab-t">Du machst jede Lobby einfach so.</div>
+              <div class="ab-tag">[PASSIVE]</div>
+            </div>
+          </div>
+          <div class="ab-h" style="margin-top:4px">Ultimate</div>
+          <div class="ab-c">
+            <div class="ab-i" style="border-color:rgba(196,181,253,.3)">✨</div>
+            <div>
+              <div class="ab-t">Bring Chaos, Good Vibes &amp; Wins.</div>
+              <div class="ab-tag" style="color:var(--lav);border-color:rgba(196,181,253,.28)">[ULT READY]</div>
+            </div>
+          </div>
+        </div>
+        <div class="bb season">
+          <div class="s-l">Season Ende</div>
+          <div class="s-d">NIEMALS</div>
+          <div class="s-s">30. Geburtstag 🌸</div>
+          <div class="s-cake">🎂</div>
+        </div>
+      </div><!-- /bot -->
+      </div><!-- /bp-screen -->
+
+    </div><!-- /lcol -->
+
+    <!-- RIGHT COLUMN -->
+    <div class="rcol">
+      <div class="rl">
+        <div class="rl-l">Battle Pass Level</div>
+        <div class="rl-n">
+          <span id="rln">0</span>
+          <span class="rl-sep">/</span>
+          <span class="rl-tot">30</span>
+        </div>
+        <div class="rl-sub">XP FORTSCHRITT</div>
+        <div class="xp-track">
+          <div class="xp-f" id="xpb" style="width:0%"></div>
+        </div>
+        <div class="xp-p" id="xpp">0%</div>
+      </div>
+
+      <div class="rq">
+        <div class="rq-qm">"</div>
+        <div class="rq-m">🌸</div>
+        <div class="rq-t">Es ist nicht nur ein Spiel.<br>Es ist unsere Lobby.</div>
+        <div class="rq-f">– seit gefühlt immer</div>
+      </div>
+
+      <div class="rt">
+        <div class="rtb on"  onclick="setTab('all',this)">Alle</div>
+        <div class="rtb"     onclick="setTab('open',this)">Offen</div>
+        <div class="rtb"     onclick="setTab('done',this)">Fertig</div>
+      </div>
+
+      <div class="ml" id="m-list"></div>
+    </div><!-- /rcol -->
+    </div><!-- /page-bp -->
+
+    <!-- ══ PAGE: MISSIONEN ══ -->
+    <div class="page hidden" id="page-missionen">
+      <div class="pg-wrap">
+        <div class="pg-hdr">
+          <div class="pg-title">🗺 Alle Missionen</div>
+          <div class="pg-sub">30 Abenteuer — in beliebiger Reihenfolge — jede bringt eine Überraschung 🌸</div>
+          <div class="pg-stats">
+            <div class="pg-stat"><div class="pg-stat-n" id="ms-open">30</div><div class="pg-stat-l">Offen</div></div>
+            <div class="pg-stat"><div class="pg-stat-n" id="ms-done">0</div><div class="pg-stat-l">Erledigt</div></div>
+          </div>
+        </div>
+        <div class="mission-grid" id="mg-list"></div>
+      </div>
+    </div>
+
+    <!-- ══ PAGE: REWARDS ══ -->
+    <div class="page hidden" id="page-rewards">
+      <div class="pg-wrap">
+        <div class="pg-hdr">
+          <div class="pg-title">🎁 Deine Belohnungen</div>
+          <div class="pg-sub">Schließe Missionen ab um Belohnungen freizuschalten</div>
+        </div>
+        <div class="reward-grid" id="rg-list"></div>
+      </div>
+    </div>
+
+    <!-- ══ PAGE: HISTORY ══ -->
+    <div class="page hidden" id="page-history">
+      <div class="pg-wrap">
+        <div class="pg-hdr">
+          <div class="pg-title">📜 Deine Geschichte</div>
+          <div class="pg-sub">Wann wurde was freigeschaltet?</div>
+        </div>
+        <div id="hl-list"></div>
+      </div>
+    </div>
+
+  </div><!-- /cnt -->
+</div><!-- /main -->
+</div><!-- /app -->
+
+<!-- ═══════════ MISSION MODAL ═══════════ -->
+<div class="ov" id="m-ov">
+  <div class="mdl">
+    <button class="mx" onclick="clOv('m-ov')">✕</button>
+    <div class="mb">
+      <span class="m-em" id="mm-ic">🎯</span>
+      <div class="m-tag">🌸 Mission starten</div>
+      <div class="m-nm" id="mm-nm"></div>
+      <div class="m-ds" id="mm-ds"></div>
+      <div id="mm-rw" style="font-family:var(--ft);font-size:16px;font-weight:800;color:var(--gold);letter-spacing:.5px;margin-bottom:10px"></div>
+      <div class="m-acts">
+        <button class="btn-g" onclick="clOv('m-ov')">Abbrechen</button>
+        <button class="btn-r" onclick="confirmM()">✓ Abschließen!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ REWARD MODAL ═══════════ -->
+<div class="ov" id="r-ov">
+  <div class="mdl">
+    <button class="mx" onclick="clOv('r-ov')">✕</button>
+    <div class="mb">
+      <div class="rw-badge" id="rw-bd">Level 1 freigeschaltet!</div>
+      <div id="rw-env" style="text-align:center">
+        <div class="rw-box" onclick="reveal()">🎁</div>
+        <div class="rw-hint">Tippen zum Öffnen ✨</div>
+      </div>
+      <div class="rw-rev" id="rw-rev">
+        <div style="font-size:42px;margin-bottom:8px">🌸</div>
+        <div class="rw-nm" id="rw-nm"></div>
+        <div class="rw-rd" id="rw-ds"></div>
+        <button class="btn-r" style="margin-top:18px;width:100%;justify-content:center;border-radius:10px" onclick="clOv('r-ov')">Super! 🎉</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Level-Up Toast -->
+<div class="lu" id="lu">
+  <div class="lu-l">🌸 Level erreicht!</div>
+  <div class="lu-n" id="lu-n">1</div>
+</div>
+
+<!-- Confetti -->
+<div class="cfl" id="cfl"></div>
+
+<!-- ═══════════ DATA ═══════════ -->
+<script>
+const CONFIG = {
+  missions: [
+    { title: "Gemeinsames Frühstück",      desc: "Frühstückt zusammen – Café oder Pancakes zuhause.",              icon: "🥞", type: "MISSION" },
+    { title: "Film-Nacht",                 desc: "Einen Film schauen – Nana darf wählen.",                          icon: "🎬", type: "MISSION" },
+    { title: "Spaziergang",                desc: "30 Minuten an der frischen Luft spazieren gehen.",                icon: "🌿", type: "QUEST" },
+    { title: "Koch-Challenge",             desc: "Kocht ein neues Rezept, das ihr noch nie probiert habt.",         icon: "👨‍🍳", type: "CHALLENGE" },
+    { title: "Foto-Session",               desc: "Mindestens 10 Fotos – eines muss als Profilbild taugen.",         icon: "📸", type: "MISSION" },
+    { title: "Board Game Night",           desc: "Brettspiel bis zum Ende – kein Aufgeben erlaubt!",                icon: "🎲", type: "CHALLENGE" },
+    { title: "Karaoke",                    desc: "Mindestens einen Song – egal wie schief.",                         icon: "🎤", type: "MISSION" },
+    { title: "Spontan-Ausflug",            desc: "Ziel wird erst im Auto verraten.",                                 icon: "🚗", type: "QUEST" },
+    { title: "Playlist erstellen",         desc: "Gemeinsame Playlist für die nächste Party.",                       icon: "🎵", type: "MISSION" },
+    { title: "Brief schreiben",            desc: "Jeder schreibt der anderen einen handgeschriebenen Brief.",        icon: "✉️",  type: "QUEST" },
+    { title: "Workout zusammen",           desc: "Joggen, Gym, Yoga – Hauptsache aktiv.",                           icon: "💪", type: "CHALLENGE" },
+    { title: "Lieblingsrestaurant",        desc: "Essen in Nanas Lieblingsrestaurant.",                              icon: "🍽️", type: "MISSION" },
+    { title: "Museum / Ausstellung",       desc: "Gemeinsam ein Museum oder eine Ausstellung besuchen.",             icon: "🏛️", type: "QUEST" },
+    { title: "Spa-Tag",                    desc: "Einen entspannten Spa- oder Wellness-Tag gönnen.",                 icon: "🛁", type: "MISSION" },
+    { title: "Online-Kurs",               desc: "Zusammen einen Online-Kurs oder Workshop machen.",                 icon: "💻", type: "QUEST" },
+    { title: "Konzert / Live-Event",       desc: "Konzert, Festival oder anderes Live-Event besuchen.",              icon: "🎸", type: "MISSION" },
+    { title: "Backen",                     desc: "Gemeinsam Nanas Lieblingskuchen backen.",                          icon: "🎂", type: "CHALLENGE" },
+    { title: "Picknick",                   desc: "Picknick im Park – mit selbst gemachtem Essen.",                   icon: "🧺", type: "QUEST" },
+    { title: "Escape Room",               desc: "Zusammen einen Escape Room meistern.",                             icon: "🔐", type: "CHALLENGE" },
+    { title: "Bowling",                    desc: "Eine Runde Bowling – letztes Spiel entscheidet.",                  icon: "🎳", type: "MISSION" },
+    { title: "Craft-Abend",               desc: "Basteln oder malen – etwas Kreatives schaffen.",                   icon: "🎨", type: "QUEST" },
+    { title: "Sonnenuntergang",            desc: "Gemeinsam einen Sonnenuntergang anschauen.",                       icon: "🌅", type: "MISSION" },
+    { title: "Road Trip",                  desc: "Einen kleinen Road Trip planen und unternehmen.",                  icon: "🗺️", type: "QUEST" },
+    { title: "Spielplatz",                 desc: "Spielplatz besuchen und nochmal Kinder sein.",                     icon: "🛝", type: "MISSION" },
+    { title: "Kino",                       desc: "Ins Kino – Nana wählt den Film.",                                  icon: "🍿", type: "MISSION" },
+    { title: "Kaffee & Kuchen",            desc: "Gemütlicher Café-Besuch mit mindestens einem Stück Kuchen.",       icon: "☕", type: "QUEST" },
+    { title: "Tanzen",                     desc: "Kurs, Club oder Wohnzimmer – Hauptsache tanzen.",                  icon: "💃", type: "CHALLENGE" },
+    { title: "Tierheim-Besuch",            desc: "Tierheim besuchen und Tiere knuddeln.",                            icon: "🐾", type: "QUEST" },
+    { title: "Freiwilligenarbeit",         desc: "Gemeinsam bei einer gemeinnützigen Aktion helfen.",                icon: "❤️", type: "MISSION" },
+    { title: "FINALE: Geburtstags-Party",  desc: "Die legendäre 30th-Birthday-Party – alles darf, nichts muss!",    icon: "🎉", type: "FINALE" },
+  ],
+  rewards: [
+    { name: "Mystery Sticker Pack",        desc: "5 handverlesene Sticker für dein nächstes Abenteuer." },
+    { name: "Lieblings-Snack Box",         desc: "Eine Box voller Lieblingssnacks – zusammengestellt mit Liebe." },
+    { name: "Gutschein: Lieblingscafé",    desc: "Kaffee & Kuchen auf Kosten des Hauses." },
+    { name: "Playlist: Top 30",            desc: "30 Songs, die eure Freundschaft definieren." },
+    { name: "Foto-Collage",               desc: "Handgemachte Foto-Collage mit euren schönsten Momenten." },
+    { name: "Buch-Überraschung",           desc: "Das Buch, das du unbedingt lesen musst – bereits besorgt." },
+    { name: "Kino-Abend Paket",            desc: "Popcorn, Getränke, Decke – perfekter Filmabend zuhause." },
+    { name: "Spa-Gutschein",              desc: "Für einen entspannten Wellness-Tag zu zweit." },
+    { name: "Geheimes Rezeptbuch",         desc: "5 handgeschriebene Lieblingsrezepte nur für dich." },
+    { name: "Lieblingssüßigkeit ×10",      desc: "Zehnfach. Weil einmal nicht reicht." },
+    { name: "Überraschungs-Ausflug",       desc: "Datum und Ort werden dir persönlich verraten." },
+    { name: "Selbstgemachtes Geschenk",    desc: "Etwas, das mit Herz gemacht wurde." },
+    { name: "Netflix & Chill Paket",       desc: "Serienempfehlung, Snacks und ein gemütlicher Abend." },
+    { name: "Geburtstags-Muffins",         desc: "Frisch gebacken, mit Liebe verziert – speziell für dich." },
+    { name: "Kreativ-Kit",                desc: "Alles für einen kreativen Abend." },
+    { name: "Gemeinsame Playlist Vol. 2",  desc: "Die Fortsetzung – noch besser als das Original." },
+    { name: "Überraschungsbrief",          desc: "Ein Brief, der jetzt geöffnet werden darf." },
+    { name: "Restaurant-Gutschein",        desc: "Für euer nächstes gemeinsames Essen." },
+    { name: "Foto-Shooting Voucher",       desc: "Ein professionelles Shooting – ihr beide, bester Look." },
+    { name: "Escape Room Buchung",         desc: "Bereits reserviert – Datum folgt persönlich." },
+    { name: "Handmade Schmuck",            desc: "Ein handgefertigtes Accessoire, das an euch erinnert." },
+    { name: "Sunset Picknick Box",         desc: "Alles für ein romantisches Sonnenuntergangs-Picknick." },
+    { name: "Road Trip Soundtrack",        desc: "Perfekte Playlist + Snack-Paket für den nächsten Trip." },
+    { name: "Vintage Fund",               desc: "Ein curated Vintage-Stück, ausgesucht für dich." },
+    { name: "Kino-Gutschein ×2",           desc: "Zwei Tickets für euren nächsten Kinoabend." },
+    { name: "Wellness Box",               desc: "Gesichtsmaske, Badezusatz, Kerze – perfekte Selbstfürsorge." },
+    { name: "Dance Lesson Voucher",        desc: "Eine gemeinsame Tanzstunde – Stil wählst du." },
+    { name: "Memory Book Seite",           desc: "Eine Seite in eurem Erinnerungsbuch – ausgefüllt von mir." },
+    { name: "Wunsch frei ⭐",              desc: "Ein fairer, erfüllbarer Wunsch – du wählst, ich mache." },
+    { name: "🌸 LEGENDÄRE ÜBERRASCHUNG",  desc: "Alle 30 Levels geschafft! Die finale Überraschung wird dir persönlich übergeben." },
+  ],
+  dailyMissions: [
+    { icon: "🎯", text: "Spiele eine Runde mit uns",              progress: "0/1", xp: "+200 XP" },
+    { icon: "💬", text: "Sage 'einer low' ohne Ping",             progress: "0/1", xp: "+150 XP" },
+    { icon: "💧", text: "Trinke genug Wasser (unwahrscheinlich)", progress: "0/2", xp: "+100 XP" },
+  ],
+};
+</script>
+
+<script>
+const N  = CONFIG.missions.length;
+const SK = 'nana_bp_v7';
+let S    = { done: [], ts: {} };
+let tab  = 'all';
+let pen  = -1;
+
+function load() {
+  try {
+    const d = localStorage.getItem(SK);
+    if (d) {
+      const p = JSON.parse(d);
+      S.done = p.done || [];
+      S.ts   = p.ts   || {};
+    }
+    // migrate old v6 save
+    const old = localStorage.getItem('nana_bp_v6');
+    if (old && !S.done.length) {
+      const o = JSON.parse(old);
+      S.done = o.done || [];
+    }
+  } catch(e) {}
+}
+function save() { localStorage.setItem(SK, JSON.stringify(S)); }
+function lv()   { return S.done.length; }
+function $(id)  { return document.getElementById(id); }
+
+document.addEventListener('DOMContentLoaded', () => {
+  load();
+  renderAll();
+  timer();
+});
+
+function fillDaily() {
+  const dl = $('dm-list');
+  dl.innerHTML = '';
+  CONFIG.dailyMissions.forEach(d => {
+    const r = document.createElement('div');
+    r.className = 'dm';
+    r.innerHTML = '<div class="dm-i">'+d.icon+'</div><div class="dm-t">'+d.text+'</div><div class="dm-p">'+d.progress+'</div><div class="dm-x">'+d.xp+'</div>';
+    dl.appendChild(r);
+  });
+}
+
+function renderAll() { bpCards(); timeline(); missionList(); updateProgress(); }
+
+/* BP CARDS — zeigen Fortschritt (slots 0..29), jeder Slot = 1 abgeschlossene Mission) */
+function bpCards() {
+  const r  = $('bp-row');
+  r.innerHTML = '';
+  const l  = lv();
+  const ms = new Set([5,10,15,20,25,30]);
+
+  for (let slot = 0; slot < N; slot++) {
+    const dn = slot < l;          // Slot ist befüllt
+    const cu = slot === l;        // nächster freier Slot
+    const lk = slot > l;         // noch gesperrt
+    const mi = ms.has(slot+1);
+
+    const c = document.createElement('div');
+    let cls = 'bpc';
+    if (dn) cls += ' done';
+    else if (cu) cls += ' cur';
+    else if (lk) cls += ' lk';
+    if (mi) cls += ' mile';
+    c.className = cls;
+
+    let icon, label, typeLabel;
+    if (dn) {
+      // Zeige die Mission, die diesen Slot befüllt hat
+      const mIdx = S.done[slot];
+      const m = CONFIG.missions[mIdx];
+      icon  = m.icon;
+      label = CONFIG.rewards[mIdx].name;
+      typeLabel = '';
+    } else if (cu) {
+      icon  = '✦';
+      label = 'Frei wählen!';
+      typeLabel = 'OFFEN';
+    } else {
+      icon  = '🔒';
+      label = 'Gesperrt';
+      typeLabel = 'LVL ' + (slot+1);
+    }
+
+    c.innerHTML =
+      '<div class="bpc-h"><div class="bpc-n">'+(slot+1)+'</div><div class="bpc-type">'+typeLabel+'</div></div>'+
+      '<span class="bpc-ic">'+icon+'</span>'+
+      '<div class="bpc-nm">'+label+'</div>';
+
+    r.appendChild(c);
+  }
+
+  // Final RADIANT card
+  const fc = document.createElement('div');
+  fc.className = 'bpc-f';
+  fc.innerHTML = '<div class="f-num">30</div><div class="f-ic">🌸</div><div class="f-lbl">FINALE</div><div class="f-title">RADIANT</div>';
+  r.appendChild(fc);
+}
+
+/* TIMELINE */
+function timeline() {
+  const r  = $('tl-row');
+  r.innerHTML = '';
+  const l  = lv();
+  const ms = new Set([5,10,15,20,25,30]);
+
+  for (let i = 1; i <= N; i++) {
+    if (i > 1) {
+      const ln = document.createElement('div');
+      ln.className = 'tl-l' + (i-1 <= l ? ' done' : '');
+      r.appendChild(ln);
+    }
+    const w = document.createElement('div');
+    w.className = 'tl-n';
+    const d = document.createElement('div');
+    let cls = 'td';
+    if (i <= l)         cls += ' done';
+    else if (i === l+1) cls += ' cur';
+    if (ms.has(i))      cls += ' mile';
+    if (i === N)        cls += ' big';
+    d.className = cls;
+    d.title = 'Level ' + i + ': ' + CONFIG.missions[i-1].title;
+    // no text inside dot — number shows only in label below
+    const lb = document.createElement('div');
+    lb.className = 'tl-lb';
+    if (ms.has(i) || i === 1 || i === l+1) lb.textContent = i;
+    w.appendChild(d); w.appendChild(lb);
+    r.appendChild(w);
+  }
+}
+
+/* MISSION LIST — alle Missionen frei wählbar, jede hat eigene Belohnung */
+function missionList() {
+  const li = $('m-list');
+  li.innerHTML = '';
+  CONFIG.missions.forEach((m, i) => {
+    const dn = S.done.includes(i);
+    if (tab==='open'    &&  dn)    return;
+    if (tab==='done'    && !dn)    return;
+    if (tab==='premium' && i < 20) return;
+    const rw = CONFIG.rewards[i];
+    const it = document.createElement('div');
+    it.className = 'mi' + (dn ? ' dn' : '');
+    it.innerHTML =
+      '<div class="mi-i">'+m.icon+'</div>'+
+      '<div class="mi-b">'+
+        '<div class="mi-num">MISSION '+String(i+1).padStart(2,'0')+' · '+m.type+'</div>'+
+        '<div class="mi-t">'+m.title+'</div>'+
+        '<div class="mi-d">'+m.desc+'</div>'+
+        (dn ? '<div class="mi-rw">🎁 '+rw.name+'</div>' : '')+
+      '</div>'+
+      (dn ? '<div class="mi-ck">✓</div>' : '<div class="mi-xp">+1 LVL</div>');
+    if (!dn) it.onclick = () => openM(i);
+    li.appendChild(it);
+  });
+  if (!li.children.length) li.innerHTML = '<div style="padding:20px 15px;color:var(--muted2);font-size:13px;text-align:center">Keine Missionen 🌸</div>';
+}
+
+function setTab(t, btn) {
+  tab = t;
+  document.querySelectorAll('.rtb').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  missionList();
+}
+
+function updateProgress() {
+  const l = lv(), p = Math.round((l/N)*100);
+  const sbPlv = $('sb-plv'); if (sbPlv) sbPlv.textContent = 'Level ' + l;
+  const sbPnm = $('sb-pnm'); // name stays static
+  $('rln').textContent   = l;
+  $('xpb').style.width   = p + '%';
+  $('xpp').textContent   = p + '%';
+}
+
+function openM(i) {
+  pen = i;
+  const m  = CONFIG.missions[i];
+  const rw = CONFIG.rewards[i];
+  $('mm-ic').textContent = m.icon;
+  $('mm-nm').textContent = m.title;
+  $('mm-ds').textContent = m.desc;
+  $('mm-rw').textContent = '🎁 Belohnung: ???';
+  $('m-ov').classList.add('open');
+}
+
+function confirmM() {
+  clOv('m-ov');
+  S.done.push(pen);
+  S.ts[pen] = new Date().toLocaleString('de-DE', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' });
+  save();
+  const l  = lv();
+  const rw = CONFIG.rewards[pen]; // Belohnung dieser Mission (nicht levelbasiert!)
+  $('rw-bd').textContent = 'Level ' + l + ' freigeschaltet! 🌸';
+  $('rw-nm').textContent = rw.name;
+  $('rw-ds').textContent = rw.desc;
+  $('rw-env').style.display = 'block';
+  $('rw-rev').classList.remove('show');
+  $('r-ov').classList.add('open');
+  renderAll();
+  setTimeout(() => lvlUpToast(l), 350);
+}
+
+function reveal() {
+  $('rw-env').style.display = 'none';
+  $('rw-rev').classList.add('show');
+  confetti();
+}
+
+function clOv(id) { $(id).classList.remove('open'); }
+function clAll()  { clOv('m-ov'); clOv('r-ov'); }
+document.addEventListener('click', e => { if (e.target.classList.contains('ov')) clAll(); });
+
+function lvlUpToast(l) {
+  const b = $('lu');
+  $('lu-n').textContent = l;
+  b.classList.add('show');
+  setTimeout(() => b.classList.remove('show'), 3000);
+}
+
+function confetti() {
+  const c  = $('cfl');
+  c.innerHTML = '';
+  const cs = ['#ff6b9d','#c4b5fd','#fda4c0','#a78bfa','#ffffff','#fde68a','#f0abcc','#e879a6'];
+  for (let i = 0; i < 80; i++) {
+    const p = document.createElement('div');
+    p.className = 'cfp';
+    const sz = (Math.random()*8+3)+'px';
+    p.style.cssText =
+      'left:'+Math.random()*100+'vw;top:-10px;width:'+sz+';height:'+sz+
+      ';background:'+cs[Math.floor(Math.random()*cs.length)]+
+      ';animation-delay:'+Math.random()*.5+'s'+
+      ';animation-duration:'+(Math.random()*1.2+1.4)+'s'+
+      ';border-radius:'+(Math.random()>.5?'50%':'3px');
+    c.appendChild(p);
+  }
+  setTimeout(() => c.innerHTML='', 3500);
+}
+
+function timer() {
+  function tick() {
+    const n=new Date(), e=new Date(); e.setHours(24,0,0,0);
+    const d=e-n;
+    const h=String(Math.floor(d/36e5)).padStart(2,'0');
+    const m=String(Math.floor((d%36e5)/6e4)).padStart(2,'0');
+    const s=String(Math.floor((d%6e4)/1e3)).padStart(2,'0');
+    const t=$('tmr'); if(t) t.textContent=h+':'+m+':'+s;
+  }
+  tick(); setInterval(tick,1000);
+}
+
+/* ── SCROLL TO BP ── */
+function scrollToBP() {
+  const lc = $('lcol-main');
+  const bp = $('bp-section');
+  if (lc && bp) lc.scrollTo({ top: bp.offsetTop - 20, behavior: 'smooth' });
+}
+
+/* ── PAGE ROUTING ── */
+function showPage(name, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+  document.getElementById('page-' + name).classList.remove('hidden');
+  document.querySelectorAll('.nav-i').forEach(n => n.classList.remove('on'));
+  if (btn) btn.classList.add('on');
+  if (name === 'missionen') renderMissionen();
+  if (name === 'rewards')   renderRewards();
+  if (name === 'history')   renderHistory();
+}
+
+/* ── MISSIONEN PAGE ── */
+function renderMissionen() {
+  const l  = $('mg-list');
+  const od = $('ms-done');
+  const oo = $('ms-open');
+  l.innerHTML = '';
+  const doneCount = S.done.length;
+  if (od) od.textContent = doneCount;
+  if (oo) oo.textContent = N - doneCount;
+
+  CONFIG.missions.forEach((m, i) => {
+    const dn = S.done.includes(i);
+    const it = document.createElement('div');
+    it.className = 'mg-item' + (dn ? ' mg-done' : '');
+    it.innerHTML =
+      '<div class="mg-ic">'+m.icon+'</div>'+
+      '<div class="mg-body">'+
+        '<div class="mg-num">MISSION '+String(i+1).padStart(2,'0')+' · '+m.type+'</div>'+
+        '<div class="mg-t">'+m.title+'</div>'+
+        '<div class="mg-d">'+m.desc+'</div>'+
+        '<span class="mg-badge '+(dn?'done':'open')+'">'+
+          (dn ? '✓ Erledigt' : '▶ Offen')+
+        '</span>'+
+      '</div>';
+    if (!dn) it.onclick = () => openM(i);
+    l.appendChild(it);
+  });
+}
+
+/* ── REWARDS PAGE ── */
+function renderRewards() {
+  const g = $('rg-list');
+  g.innerHTML = '';
+  CONFIG.rewards.forEach((r, i) => {
+    const dn  = S.done.includes(i);
+    const m   = CONFIG.missions[i];
+    const it  = document.createElement('div');
+    it.className = 'rg-item ' + (dn ? 'rg-unlocked' : 'rg-locked');
+    if (dn) {
+      it.innerHTML =
+        '<div class="rg-num">REWARD ' + String(i+1).padStart(2,'0') + '</div>'+
+        '<div class="rg-ic">🎁</div>'+
+        '<div class="rg-name">'+r.name+'</div>'+
+        '<div class="rg-desc">'+r.desc+'</div>'+
+        '<div class="rg-src">aus: '+m.title+'</div>';
+    } else {
+      it.innerHTML =
+        '<div class="rg-num">REWARD ' + String(i+1).padStart(2,'0') + '</div>'+
+        '<div class="rg-lock-ic">🔒</div>'+
+        '<div class="rg-lock-t">???</div>'+
+        '<div class="rg-src" style="margin-top:6px">Mission: '+m.title+'</div>';
+    }
+    g.appendChild(it);
+  });
+}
+
+/* ── HISTORY PAGE ── */
+function renderHistory() {
+  const c = $('hl-list');
+  c.innerHTML = '';
+  if (!S.done.length) {
+    c.innerHTML =
+      '<div class="hl-empty">'+
+        '<div class="hl-empty-ic">📜</div>'+
+        '<div class="hl-empty-t">Noch nichts passiert!</div>'+
+        '<div class="hl-empty-s">Schließe deine erste Mission ab,<br>damit deine Geschichte hier erscheint. 🌸</div>'+
+      '</div>';
+    return;
+  }
+  // Show in reverse order (newest first)
+  [...S.done].reverse().forEach((mIdx, revPos) => {
+    const pos = S.done.length - revPos;
+    const m   = CONFIG.missions[mIdx];
+    const rw  = CONFIG.rewards[mIdx];
+    const ts  = S.ts[mIdx] || '–';
+    const it  = document.createElement('div');
+    it.className = 'hl-item';
+    it.innerHTML =
+      '<div class="hl-dot">'+m.icon+'</div>'+
+      '<div class="hl-body">'+
+        '<div class="hl-lvl">Level '+pos+' freigeschaltet</div>'+
+        '<div class="hl-title">'+m.title+'</div>'+
+        '<div class="hl-reward">🎁 '+rw.name+'</div>'+
+        '<div class="hl-time">'+ts+'</div>'+
+      '</div>';
+    c.appendChild(it);
+  });
+}
+</script>
+</body>
+</html>

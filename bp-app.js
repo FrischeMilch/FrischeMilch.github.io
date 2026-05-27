@@ -1,14 +1,11 @@
 // ═══════════════════════════════════════════════════════════════
-// NANA'S BATTLEPASS — APP LOGIC
-// ─ Diese Datei muss NICHT bearbeitet werden ─
-// Liest alles aus CONFIG (config.js)
+// NANA'S BATTLEPASS — APP LOGIC  🌸🌙
 // ═══════════════════════════════════════════════════════════════
 
 const C = CONFIG;
 const N = C.missions.length;
 const SK = 'nana_bp_v4';
 
-// ── STATE ──
 let S = { done: [] };
 function load() { try { const d = localStorage.getItem(SK); if (d) S = JSON.parse(d); } catch(e){} }
 function save() { localStorage.setItem(SK, JSON.stringify(S)); }
@@ -24,12 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
   timer();
 });
 
-// ── INJECT TEXTS FROM CONFIG ──
 function texts() {
   $('pnm-t').innerHTML = C.profileTitle + ' <span class="pcr">👑</span>';
   $('plv-t').textContent = 'Level ' + lv();
   $('hep-t').innerHTML = '<b>EPISODE ' + C.age + '</b> // ACT I';
-  $('hsub-t').textContent = '🎂 ' + C.heroSubtitle;
+  $('hsub-t').textContent = '🌸 ' + C.heroSubtitle;
   $('hdesc-t').textContent = C.heroDesc;
 
   const a = C.heroAnnotation;
@@ -59,7 +55,6 @@ function texts() {
   $('ss-t').textContent = C.seasonEndSub;
 }
 
-// ── RENDER ──
 function renderAll() {
   bpCards();
   timeline();
@@ -67,7 +62,6 @@ function renderAll() {
   progress();
 }
 
-// ── BP CARDS ──
 function bpCards() {
   const r = $('bp-row');
   r.innerHTML = '';
@@ -97,14 +91,12 @@ function bpCards() {
     r.appendChild(c);
   }
 
-  // Final boss
   const fc = document.createElement('div');
   fc.className = 'bpc-f' + (l >= N ? ' done' : '');
-  fc.innerHTML = '<div class="f-num">' + N + '</div><div class="f-ic">👑</div><div class="f-lbl">FINAL BOSS</div><div class="f-title">RADIANT</div>';
+  fc.innerHTML = '<div class="f-num">' + N + '</div><div class="f-ic">🌸</div><div class="f-lbl">FINAL BOSS</div><div class="f-title">RADIANT</div>';
   r.appendChild(fc);
 }
 
-// ── TIMELINE ──
 function timeline() {
   const r = $('tl-row');
   r.innerHTML = '';
@@ -142,7 +134,6 @@ function timeline() {
   }
 }
 
-// ── MISSIONS LIST ──
 function missions() {
   const li = $('m-list');
   li.innerHTML = '';
@@ -180,7 +171,6 @@ function setTab(t, btn) {
   missions();
 }
 
-// ── PROGRESS ──
 function progress() {
   const l = lv();
   const p = Math.round((l / N) * 100);
@@ -191,7 +181,6 @@ function progress() {
   $('xpp').textContent = p + '%';
 }
 
-// ── MODALS ──
 function openM(i) {
   pen = i;
   const m = C.missions[i];
@@ -234,7 +223,6 @@ document.addEventListener('click', e => {
   if (e.target.classList.contains('ov')) clAll();
 });
 
-// ── LEVEL UP ──
 function lvlUp(l) {
   const b = $('lu');
   $('lu-n').textContent = l;
@@ -242,12 +230,11 @@ function lvlUp(l) {
   setTimeout(() => b.classList.remove('show'), 3000);
 }
 
-// ── CONFETTI ──
 function confetti() {
   const c = $('cfl');
   c.innerHTML = '';
-  const cs = ['#ff3848','#ffd44f','#ff6878','#fff','#ff5060','#ffaa20','#e52030'];
-  for (let i = 0; i < 65; i++) {
+  const cs = ['#e8729a','#d4c8f4','#f0b8d0','#c8a8f8','#ffffff','#f090c0','#b890e8','#ffd4e8'];
+  for (let i = 0; i < 70; i++) {
     const p = document.createElement('div');
     p.className = 'cfp';
     const sz = (Math.random()*7+3)+'px';
@@ -257,7 +244,6 @@ function confetti() {
   setTimeout(() => c.innerHTML = '', 3000);
 }
 
-// ── TIMER ──
 function timer() {
   function tick() {
     const n = new Date(), e = new Date();
@@ -273,8 +259,9 @@ function timer() {
   setInterval(tick, 1000);
 }
 
-// ── SCROLL ──
-function scrollBP() { $('m-list').scrollIntoView({ behavior: 'smooth' }); }
+function scrollBP() {
+  const rc = document.querySelector('.rcol');
+  if (rc) rc.scrollTop = 300;
+}
 
-// ── HELPER ──
 function $(id) { return document.getElementById(id); }
