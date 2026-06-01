@@ -13,38 +13,53 @@ const CONFIG = {
   profileEmoji: "👸",
 
   heroSubtitle: "Happy Birthday!",
-  heroDesc: "FÜR DIE BESTE GAMERIN & DUO PARTNERIN <3",
+  heroDesc: "Dein persönlicher Battlepass - 30 Stufen, 30 Missionen, 30 Rewards",
 
   heroAnnotation: {
-    line1: "30 und",
-    line2: "immer noch",
-    line3: "our duo <3"
+    line1: "Guild Veteran",
+    line2: "Bufft alle Mitspieler in ihrer Nähe",
+    line3: "Beschwört gute Laune für die gesamte Gruppe."
   },
 
   quoteRight: {
-    text: "Hardstuck?\nNein.\nLifestyle.",
-    from: "– dein Onkel & Duo"
+    text: "Manche Leute machen jede Lobby besser",
+    from: "und du gehörst dazu"
   },
 
   quoteBottom: {
-    text: "Es ist nicht nur ein Spiel.\nEs ist unsere Lobby.",
-    from: "– seit gefühlt immer"
+    text: "Seit Jahren MVP in jeder Lobby. ",
+    from: "Danke für die unzähligen Games, Gespräche und Carry-Momente"
   },
 
   passiveAbility: {
-    name: "Du machst jede Lobby einfach so.",
+    name: "Erhöht die Stimmung des gesamten Teams.",
     tag: "PASSIVE"
   },
   ultimateAbility: {
     name: "Bring Chaos, Good Vibes und Wins.",
-    tag: "ULT READY"
+    tag: "ULTIMATE"
   },
 
-  dailyMissions: [
-    { icon: "🎯", text: "Spiele eine Runde mit uns",              progress: "0/1", xp: "+200 XP" },
-    { icon: "💬", text: 'Sage: "einer low" ohne Ping',            progress: "0/1", xp: "+150 XP" },
-    { icon: "💧", text: "Trinke genug Wasser (unwahrscheinlich)", progress: "0/2", xp: "+100 XP" },
-  ],
+dailyMissions: [
+  {
+    icon: "🎂",
+    text: "Level 30 erreichen",
+    progress: "1/1",
+    xp: "+300 XP"
+  },
+  {
+    icon: "🎮",
+    text: "Mit dem Duo eine Runde spielen",
+    progress: "0/1",
+    xp: "+200 XP"
+  },
+  {
+    icon: "🏆",
+    text: "Geburtstag genießen",
+    progress: "0/1",
+    xp: "+500 XP"
+  }
+],
 
   seasonEnd: "NIEMALS",
   seasonEndSub: "30. GEBURTSTAG 🌸",
