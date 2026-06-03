@@ -141,7 +141,7 @@ body::before {
 .pchip:hover { background:rgba(94,189,138,.14); border-color:var(--bdrl); }
 .pav {
   width:36px; height:36px;
-  background:linear-gradient(135deg,#ff6b9d,#c03570);
+  background:linear-gradient(135deg,#c0c8d8,#7880a0);
   display:flex; align-items:center; justify-content:center;
   border-radius:50%; font-size:13.5px;
   box-shadow:0 0 14px rgba(94,189,138,.4);
@@ -165,9 +165,9 @@ body::before {
   position:absolute; inset:0;
   background:
     linear-gradient(to bottom, transparent 65%, var(--bg0) 100%),
-    radial-gradient(ellipse 60% 130% at 82% 50%,rgba(210,60,110,.22) 0%,transparent 60%),
-    radial-gradient(ellipse 50% 70% at 96% 15%,rgba(200,140,60,.12) 0%,transparent 50%),
-    linear-gradient(145deg,#160a10 0%,#1e0e18 45%,#160c10 100%);
+    radial-gradient(ellipse 60% 130% at 82% 50%,rgba(160,170,200,.18) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 70% at 96% 15%,rgba(180,185,200,.12) 0%,transparent 50%),
+    linear-gradient(145deg,#10101a 0%,#161620 45%,#101018 100%);
 }
 /* petal glows */
 .h-petals {
@@ -320,7 +320,7 @@ body::before {
 }
 .bpc.cur {
   border:none;
-  background:linear-gradient(135deg,#3c1828,#2e1020);
+  background:linear-gradient(135deg,#2e2a34,#24202c);
   box-shadow:0 0 20px rgba(94,189,138,.18),0 0 40px rgba(94,189,138,.07);
   animation:none;
   position:relative;
@@ -336,7 +336,7 @@ body::before {
     transparent 0deg,
     transparent 290deg,
     rgba(94,189,138,.25) 320deg,
-    rgba(255,210,225,1) 355deg,
+    rgba(220,225,235,1) 355deg,
     transparent 360deg
   );
   -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
@@ -776,8 +776,8 @@ body::before {
   /* ── Topbar ── */
   .top { padding:0 12px; gap:8px; }
   .top-ep { font-size:10px; letter-spacing:1.5px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; max-width:calc(100vw - 180px); }
-  .mob-menu-btn { display:block; }
-  .mob-rcol-btn { display:flex; align-items:center; gap:5px; }
+  .mob-menu-btn { display:none !important; }
+  .mob-rcol-btn { display:none !important; }
   .pchip { padding:5px 10px 5px 5px; gap:7px; }
   .pav { width:28px; height:28px; font-size:12px; }
   .pnm { font-size:11px; }
@@ -876,8 +876,8 @@ body::before {
           <stop offset="100%" stop-color="#3da870"/>
         </radialGradient>
         <radialGradient id="pg2" cx="50%" cy="30%" r="65%">
-          <stop offset="0%" stop-color="#ffb3d0"/>
-          <stop offset="100%" stop-color="#c03570"/>
+          <stop offset="0%" stop-color="#d8dce8"/>
+          <stop offset="100%" stop-color="#7880a0"/>
         </radialGradient>
       </defs>
       <!-- soft bg circle -->
@@ -1393,7 +1393,7 @@ function lvlUpToast(l) {
 function confetti() {
   const c  = $('cfl');
   c.innerHTML = '';
-  const cs = ['#ff6b9d','#c4b5fd','#fda4c0','#a78bfa','#ffffff','#fde68a','#f0abcc','#e879a6'];
+  const cs = ['#c0c8d8','#b8c0d0','#d0d4e0','#a8b0c0','#ffffff','#e0e4ec','#9098a8','#d8dce8'];
   for (let i = 0; i < 80; i++) {
     const p = document.createElement('div');
     p.className = 'cfp';
