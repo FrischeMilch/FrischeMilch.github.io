@@ -651,6 +651,50 @@ body::before {
 .cfp { position:absolute; opacity:0; animation:cff 2.2s ease-in forwards; }
 @keyframes cff { 0% { opacity:1; transform:translateY(-10px) rotate(0deg); } 100% { opacity:0; transform:translateY(100vh) rotate(600deg); } }
 
+/* ── MOBILE NAV TOGGLE ── */
+.mob-menu-btn {
+  display:none;
+  background:none; border:none;
+  color:var(--muted); font-size:22px; cursor:pointer;
+  padding:4px 8px; line-height:1;
+}
+.mob-rcol-btn {
+  display:none;
+  background:rgba(255,107,157,.1); border:1px solid var(--bdr);
+  color:var(--muted); font-size:14px; cursor:pointer;
+  padding:5px 10px; border-radius:8px;
+  font-family:var(--ft); font-weight:800; letter-spacing:1px;
+  white-space:nowrap;
+}
+
+/* ── MOBILE BOTTOM NAV ── */
+.mob-nav {
+  display:none;
+  position:fixed; bottom:0; left:0; right:0; z-index:200;
+  background:rgba(26,12,20,.97);
+  border-top:1px solid var(--bdr);
+  backdrop-filter:blur(12px);
+  flex-direction:row;
+  padding-bottom:env(safe-area-inset-bottom, 0px);
+}
+.mob-nav-i {
+  flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:10px 6px 8px;
+  font-family:var(--ft); font-size:9px; font-weight:800; letter-spacing:1.5px;
+  text-transform:uppercase; color:var(--muted2); cursor:pointer; gap:4px;
+  transition:color .15s;
+}
+.mob-nav-i .mn-ic { font-size:18px; line-height:1; }
+.mob-nav-i.on { color:var(--pink); }
+
+/* Sidebar overlay on mobile */
+.sidebar-overlay {
+  display:none;
+  position:fixed; inset:0; z-index:150;
+  background:rgba(0,0,0,.6); backdrop-filter:blur(4px);
+}
+.sidebar-overlay.open { display:block; }
+
 /* ── PAGES ── */
 .page { display:flex; flex:1; overflow:hidden; width:100%; min-height:0; }
 .page.hidden { display:none !important; }
@@ -708,6 +752,111 @@ body::before {
 .hl-title { font-family:var(--fb); font-size:13.5px; font-weight:700; color:#fff; margin:2px 0; }
 .hl-reward { font-size:13px; color:var(--gold); }
 .hl-time { font-family:var(--fm); font-size:13px; color:var(--muted2); margin-top:3px; }
+
+/* ══════════════════════════════════════
+   RESPONSIVE — MOBILE (≤ 768px)
+══════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Layout ── */
+  body { overflow:hidden; }
+  .app { flex-direction:column; height:100dvh; }
+
+  /* ── Sidebar: hidden by default, slides in as overlay ── */
+  .sidebar {
+    position:fixed; top:0; left:-220px; height:100%;
+    z-index:160; transition:left .28s cubic-bezier(.4,0,.2,1);
+    width:200px !important; min-width:200px !important;
+  }
+  .sidebar.open { left:0; }
+
+  /* ── Main: full width ── */
+  .main { width:100%; flex:1; min-height:0; }
+
+  /* ── Topbar ── */
+  .top { padding:0 12px; gap:8px; }
+  .top-ep { font-size:10px; letter-spacing:1.5px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; max-width:calc(100vw - 180px); }
+  .mob-menu-btn { display:block; }
+  .mob-rcol-btn { display:flex; align-items:center; gap:5px; }
+  .pchip { padding:5px 10px 5px 5px; gap:7px; }
+  .pav { width:28px; height:28px; font-size:12px; }
+  .pnm { font-size:11px; }
+  .plv { font-size:10px; }
+
+  /* ── Content ── */
+  .cnt { flex-direction:column; }
+
+  /* ── Hero ── */
+  .hero { height:200px; }
+  .htxt { padding:0 18px 20px; }
+  .h-title { font-size:42px; }
+  .h-title-k { font-size:50px; }
+  .h-sub { font-size:16px; }
+  .h-desc { font-size:11px; letter-spacing:1.5px; }
+  .h-moon-wrap { width:160px; height:160px; right:10px; top:15px; }
+  .h-hero-img { width:280px; right:-30px; }
+  .h-anno { display:none; }
+  .h-btns .btn-r { font-size:11px; padding:8px 14px; }
+
+  /* ── Battle pass cards: compact ── */
+  .bp-scroll-area { padding:16px 16px 12px; }
+  .bpc { width:96px; min-width:96px; }
+  .bpc.cur { transform:scale(1.04); }
+  .bpc.done { transform:scale(.86); }
+  .bpc.lk { transform:scale(.80); }
+  .sec-hdr { padding:8px 16px; }
+
+  /* ── Timeline ── */
+  .tl-w { padding:0 16px; }
+
+  /* ── Bottom panels: stack vertically ── */
+  .bot { flex-direction:column; padding:8px 12px calc(env(safe-area-inset-bottom,0px) + 72px); gap:6px; }
+  .bb.daily, .bb.quote, .bb.abil, .bb.season { flex:none; }
+
+  /* ── Right column: hidden, shown via rcol-panel overlay ── */
+  .rcol {
+    position:fixed; top:0; right:-100%; height:100%;
+    z-index:160; width:88vw !important; min-width:0 !important;
+    transition:right .28s cubic-bezier(.4,0,.2,1);
+  }
+  .rcol.open { right:0; }
+
+  /* ── Bottom mobile nav ── */
+  .mob-nav { display:flex; }
+
+  /* ── lcol scrolls properly ── */
+  .lcol {
+    overflow-y:auto;
+    padding-bottom:0;
+    height:calc(100dvh - 50px);
+  }
+
+  /* ── Page wrappers ── */
+  .pg-wrap { padding:18px 16px; padding-bottom:calc(env(safe-area-inset-bottom,0px) + 76px); }
+  .pg-title { font-size:32px; }
+  .pg-stats { flex-wrap:wrap; gap:8px; }
+
+  /* ── Mission/Reward grids: single column ── */
+  .mission-grid { grid-template-columns:1fr; }
+  .reward-grid { grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); }
+
+  /* ── Modal ── */
+  .mdl { max-width:96vw; }
+  .mb { padding:22px 18px 18px; }
+
+  /* ── Level-up toast ── */
+  .lu { min-width:160px; padding:10px 24px; }
+}
+
+@media (max-width: 400px) {
+  .h-title { font-size:34px; }
+  .h-title-k { font-size:40px; }
+  .hero { height:180px; }
+  .h-moon-wrap { width:130px; height:130px; }
+  .bpc { width:84px; min-width:84px; }
+  .bpc-ic { font-size:36px; }
+  .bpc-nm { font-size:12px; }
+}
 </style>
 </head>
 <body>
@@ -770,7 +919,9 @@ body::before {
 <!-- ═══════════ MAIN ═══════════ -->
 <div class="main">
   <div class="top">
+    <button class="mob-menu-btn" onclick="toggleSidebar()" aria-label="Menü">☰</button>
     <div class="top-ep" id="top-ep"><b>EPISODE 30</b> // ACT I — LOTUS MOON SEASON 🌸</div>
+    <button class="mob-rcol-btn" onclick="toggleRcol()">📊 Stats</button>
   </div>
 
   <!-- CONTENT AREA -->
@@ -931,6 +1082,16 @@ body::before {
   </div><!-- /cnt -->
 </div><!-- /main -->
 </div><!-- /app -->
+
+<!-- ── MOBILE: sidebar overlay + bottom nav ── -->
+<div class="sidebar-overlay" id="sb-overlay" onclick="closeSidebar()"></div>
+
+<nav class="mob-nav" id="mob-nav">
+  <div class="mob-nav-i on" id="mn-bp"   onclick="showPage('bp',null);setMobNav('bp')"><span class="mn-ic">✦</span>Pass</div>
+  <div class="mob-nav-i"    id="mn-missionen" onclick="showPage('missionen',null);setMobNav('missionen')"><span class="mn-ic">🗺</span>Missionen</div>
+  <div class="mob-nav-i"    id="mn-rewards"   onclick="showPage('rewards',null);setMobNav('rewards')"><span class="mn-ic">🎁</span>Rewards</div>
+  <div class="mob-nav-i"    id="mn-history"   onclick="showPage('history',null);setMobNav('history')"><span class="mn-ic">📜</span>History</div>
+</nav>
 
 <!-- ═══════════ MISSION MODAL ═══════════ -->
 <div class="ov" id="m-ov">
@@ -1267,12 +1428,45 @@ function scrollToBP() {
   if (lc && bp) lc.scrollTo({ top: bp.offsetTop - 20, behavior: 'smooth' });
 }
 
+/* ── MOBILE NAVIGATION ── */
+function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('open');
+  document.getElementById('sb-overlay').classList.toggle('open');
+}
+function closeSidebar() {
+  document.querySelector('.sidebar').classList.remove('open');
+  document.getElementById('sb-overlay').classList.remove('open');
+}
+function toggleRcol() {
+  const rc = document.querySelector('.rcol');
+  const isOpen = rc.classList.toggle('open');
+  const ov = document.getElementById('sb-overlay');
+  if (isOpen) {
+    ov.classList.add('open');
+    ov.onclick = closeRcol;
+  } else {
+    ov.classList.remove('open');
+    ov.onclick = closeSidebar;
+  }
+}
+function closeRcol() {
+  document.querySelector('.rcol').classList.remove('open');
+  document.getElementById('sb-overlay').classList.remove('open');
+  document.getElementById('sb-overlay').onclick = closeSidebar;
+}
+function setMobNav(name) {
+  document.querySelectorAll('.mob-nav-i').forEach(n => n.classList.remove('on'));
+  const el = document.getElementById('mn-' + name);
+  if (el) el.classList.add('on');
+}
+
 /* ── PAGE ROUTING ── */
 function showPage(name, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
   document.getElementById('page-' + name).classList.remove('hidden');
   document.querySelectorAll('.nav-i').forEach(n => n.classList.remove('on'));
   if (btn) btn.classList.add('on');
+  closeSidebar();
   if (name === 'missionen') renderMissionen();
   if (name === 'rewards')   renderRewards();
   if (name === 'history')   renderHistory();
