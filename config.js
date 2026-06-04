@@ -98,8 +98,8 @@ dailyMissions: [
   ],
 
   rewards: [
-    { name: "Doomlings Pack",                 desc: "Das Kartenspiel für alle die überleben wollen. Viel Glück bei der Apokalypse." },
     { name: "Cypher",                         desc: "Dein Agent. Dein Main. Ab jetzt auch im Regal vertreten." },
+    { name: "Doomlings Pack",                 desc: "Das Kartenspiel für alle die überleben wollen. Viel Glück bei der Apokalypse." },
     { name: "Gamer Tasse",                    desc: "Kaffee schmeckt besser wenn die Tasse geil ist. Wissenschaftlich bewiesen." },
     { name: "Artemis (Sailor Moon)",          desc: "Der weiße Kater-Wächter ist jetzt deins. Beschützt dich offiziell." },
     { name: "Nachtlicht",                     desc: "Für alle Nächte die zu dunkel oder zu lang sind." },
